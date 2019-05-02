@@ -14,10 +14,10 @@ module.exports = {
   author: 'LekoArts', // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: '@cara', // Twitter Username
-  ogSiteName: 'cara', // Facebook Site Name
-  ogLanguage: 'en_US', // Facebook Language
-  googleAnalyticsID: 'UA-47519312-5',
+  //userTwitter: '@cara', // Twitter Username
+  //ogSiteName: 'cara', // Facebook Site Name
+  //ogLanguage: 'en_US', // Facebook Language
+  googleAnalyticsID: 'UA-139454760-1',
 
   // Manifest and Progress color
   themeColor: tailwind.colors.orange,
