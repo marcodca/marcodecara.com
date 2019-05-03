@@ -53,10 +53,10 @@ const colors = {
   'grey-darkest': '#273238',
   'grey-darker': '#364349',
   'grey-dark': '#70818a',
-  grey: '#9babb4',
+  grey: '#e3e3e3',
   'grey-light': '#dae4e9',
   'grey-lighter': '#f3f7f9',
-  'grey-lightest': '#fafcfc',
+  'grey-lightest': '#f6f6f8',
   white: '#ffffff',
 
   'red-darkest': '#420806',
