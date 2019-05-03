@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from '../../tailwind'
+import background from '../images/background-svg.svg'
+
+console.log(typeof background)
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -10,7 +14,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #161719;
+    background-image: url(${background});
+    background-color: ${colors.grey};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
