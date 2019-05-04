@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 import { colors } from '../../tailwind'
 import background from '../images/background.svg'
 
-console.log(typeof background)
-
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
