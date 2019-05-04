@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { colors } from '../../tailwind'
-import background from '../images/background-svg.svg'
+import background from '../images/background.svg'
 
 console.log(typeof background)
 
