@@ -21,7 +21,7 @@ export const Title = styled.h1`
 
 export const BigTitle = styled.h1`
   ${tw`text-5xl lg:text-6xl font-serif text-black mb-6 tracking-wide`};
-  text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 5px 35px rgba(155, 155, 155, 1);
 `
 
 export const Subtitle = styled.p`
