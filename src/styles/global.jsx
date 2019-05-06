@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* background by SVGBackgrounds.com */
   html, body {
     width: 100%;
     height: 100%;
