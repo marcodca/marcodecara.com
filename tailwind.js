@@ -209,7 +209,7 @@ module.exports = {
       'sans-serif',
     ],
     serif: [
-      'Cantata One',
+      'Trocchi',
       'Constantia',
       'Lucida Bright',
       'Lucidabright',
