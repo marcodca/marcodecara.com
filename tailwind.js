@@ -195,6 +195,7 @@ module.exports = {
 
   fonts: {
     sans: [
+      'Questrial',
       'Open Sans',
       '-apple-system',
       'BlinkMacSystemFont',

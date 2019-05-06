@@ -65,7 +65,7 @@ const Index = () => (
         <BigTitle>
           Hey there, <br /> I'm Marco.
         </BigTitle>
-        <Subtitle>I enojoy making web pages and blobs.</Subtitle>
+        <Subtitle>I enjoy making web pages and blobs.</Subtitle>
       </Hero>
       <Projects offset={1}>
         <Title>Projects</Title>
