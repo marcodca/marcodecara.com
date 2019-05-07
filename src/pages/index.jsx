@@ -48,6 +48,9 @@ const AboutSub = styled.span`
 const AboutDesc = styled.p`
   ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
 `
+const BigTitleName = styled.span`
+  font-size: 115%;
+`
 
 const ContactText = styled.p`
   ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
@@ -63,7 +66,10 @@ const Index = () => (
     <Parallax pages={5}>
       <Hero offset={0}>
         <BigTitle>
-          Hey there, <br /> I'm Marco.
+          Hey there, <br /> 
+          <BigTitleName>
+            I'm Marco.
+          </BigTitleName>
         </BigTitle>
         <Subtitle>I enjoy making web pages and blobs.</Subtitle>
       </Hero>
