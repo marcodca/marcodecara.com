@@ -19,6 +19,7 @@
     "gatsby-transformer-sharp": "^2.1.18",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-blob": "^1.0.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-spring": "^8.0.19",
