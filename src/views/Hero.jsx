@@ -6,7 +6,7 @@ import { colors } from '../../tailwind'
 import { Divider } from '../elements/Dividers'
 import Content from '../elements/Content'
 import { UpDown, UpDownWide } from '../styles/animations'
-import { SimpleBlob } from '../components/Blobs'
+import { Blob } from '../components/Blobs'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -17,7 +17,7 @@ const Hero = ({ children, offset }) => (
       <UpDown>
       </UpDown>
       <UpDownWide>
-        <SimpleBlob/>
+        <Blob/>
       </UpDownWide>
     </Divider>
     <Content speed={0.4} offset={offset}>
