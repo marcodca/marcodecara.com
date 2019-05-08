@@ -16,10 +16,10 @@ const Hero = ({ children, offset }) => (
     <Divider speed={0.2} offset={offset}>
       <UpDown>
         <ResponsiveBlob
-          size="10vw"
+          size={10}
           left="15vw"
           top="77vh"
-          opacity="1"
+          opacity="0.9"
           border="1px solid black"
           color={colors.white}
         />
@@ -29,8 +29,8 @@ const Hero = ({ children, offset }) => (
           size="70px"
           left="5vw"
           top="-5vh"
-          opacity="0.8"
-          border="4px solid black"
+          opacity="0.6"
+          border="3px solid black"
           empty
         />
       </UpDownWide>
@@ -38,8 +38,15 @@ const Hero = ({ children, offset }) => (
         size="30px"
         left="35vw"
         top="75vh"
-        opacity="1"
+        opacity="0.8"
         color={colors["black"]}
+      />
+      <ResponsiveBlob
+        size={40}
+        left="80vw"
+        top="-3vh"
+        opacity="0.6"
+        color={colors['grey-dark']}
       />
     </Divider>
     <Content speed={0.4} offset={offset}>
