@@ -17,7 +17,12 @@ const Hero = ({ children, offset }) => (
       <UpDown>
       </UpDown>
       <UpDownWide>
-        <Blob/>
+        <Blob 
+          size='100px'
+          empty
+          border='4px solid black'
+          color='black'
+          />
       </UpDownWide>
     </Divider>
     <Content speed={0.4} offset={offset}>
