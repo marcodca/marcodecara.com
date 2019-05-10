@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
-import { colors } from "../../tailwind";
+import { colors, screens } from "../../tailwind";
 import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { Blob, ResponsiveBlob } from "../components/Blobs";
+
+console.log(screens)
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -19,12 +21,15 @@ const DoubleBlob = props => (
       top={props.top}
       left={props.left}
       shadow={props.shadow}
+      css={` 
+          @media (max-width: ${screens.sm}) {
+          top: 0;
+        }`
+      }
   >
     <Blob 
       color={props.innerColor}
       size="80%"
-    />
-    
     />
   </ResponsiveBlob>
 );
@@ -45,8 +50,8 @@ const Hero = ({ children, offset }) => (
           outerColor={"black"}
           innerColor={"white"}
           size={20}
-          left="52vw"
-          top="10vh"
+          left="52%"
+          top="10%"
           shadow
         />
       </UpDown>
@@ -62,7 +67,7 @@ const Hero = ({ children, offset }) => (
       </UpDownWide>
       <Blob
         size="30px"
-        left="35%"
+        left="65%"
         top="75%"
         opacity="0.8"
         color={colors["black"]}
