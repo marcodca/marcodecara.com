@@ -16,7 +16,7 @@ export const Blob = styled(blob)`
   background-color: ${props => props.empty ? "" : props.color ? props.color : colors.white};
   border: ${props => props.border};
   opacity: ${props => props.opacity};
-  /* box-shadow: -1px -2px 62px -2px rgba(0, 0, 0, 0.75); */
+  box-shadow: ${props => props.shadow ? "-1px -2px 62px -2px rgba(0, 0, 0, 0.75)" : ""};
 `;
 
 //A responsive blob should take its size only as an integrer!
