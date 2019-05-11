@@ -7,8 +7,7 @@ import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { Blob, ResponsiveBlob } from "../components/Blobs";
-
-console.log(screens)
+import { media } from "../styles/utils";
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -21,11 +20,7 @@ const DoubleBlob = props => (
       top={props.top}
       left={props.left}
       shadow={props.shadow}
-      css={` 
-          @media (max-width: ${screens.sm}) {
-          top: 0;
-        }`
-      }
+      css={`${media.md`top: 0%`};`}
   >
     <Blob 
       color={props.innerColor}

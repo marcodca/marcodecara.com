@@ -2,12 +2,11 @@ import styled from "styled-components"
 import tw from 'tailwind.macro'
 import { colors } from '../../tailwind'
 import { Blob as blob } from "react-blob"
-import { hidden } from '../styles/utils'
-
-//TODO: Add proptypes!
+import { hidden, media } from '../styles/utils'
 
 export const Blob = styled(blob)`
   ${tw`absolute`};
+  
   ${props => props.hiddenMobile && hidden};
   top: ${props => props.top};
   left: ${props => props.left};
