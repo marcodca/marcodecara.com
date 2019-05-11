@@ -1,12 +1,12 @@
+import React from 'react'
 import styled from "styled-components"
 import tw from 'tailwind.macro'
 import { colors } from '../../tailwind'
 import { Blob as blob } from "react-blob"
-import { hidden, media } from '../styles/utils'
+import { hidden } from '../styles/utils'
 
 export const Blob = styled(blob)`
   ${tw`absolute`};
-  
   ${props => props.hiddenMobile && hidden};
   top: ${props => props.top};
   left: ${props => props.left};
@@ -25,3 +25,20 @@ export const ResponsiveBlob = styled(Blob)`
   min-width: ${props => `${props.size}vh`};
   min-height: ${props => `${props.size}vh`};
 `
+export const DoubleBlob = props => {
+  const { className, outerColor, size, top, left, shadow,innerColor } = props;
+return (
+  <ResponsiveBlob
+      className={className}
+      color={outerColor}
+      size={size}
+      top={top}
+      left={left}
+      shadow={shadow}
+  >
+    <Blob 
+      color={innerColor}
+      size="80%"
+    />
+  </ResponsiveBlob>
+)};

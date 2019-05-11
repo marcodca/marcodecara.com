@@ -1,33 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import tw from "tailwind.macro";
-import { colors, screens } from "../../tailwind";
+import { colors } from "../../tailwind";
 import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import { UpDown, UpDownWide } from "../styles/animations";
-import { Blob, ResponsiveBlob } from "../components/Blobs";
+import { Blob, ResponsiveBlob, DoubleBlob } from "../components/Blobs";
 import { media } from "../styles/utils";
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `;
-
-const DoubleBlob = props => (
-  <ResponsiveBlob
-      color={props.outerColor}
-      size={props.size}
-      top={props.top}
-      left={props.left}
-      shadow={props.shadow}
-      css={`${media.md`top: 0%`};`}
-  >
-    <Blob 
-      color={props.innerColor}
-      size="80%"
-    />
-  </ResponsiveBlob>
-);
 
 const Hero = ({ children, offset }) => (
   <>
@@ -41,31 +25,53 @@ const Hero = ({ children, offset }) => (
           border="1px solid black"
           color={colors.white}
         />
-        <DoubleBlob 
+        <DoubleBlob
           outerColor={"black"}
           innerColor={"white"}
           size={20}
-          left="52%"
+          left="56%"
           top="10%"
           shadow
+          css={`
+            ${media.md`top: 0`};
+          `}
         />
       </UpDown>
       <UpDownWide>
         <Blob
-          size="70px"
-          left="5%"
-          top="-5%"
+          size="90px"
+          left="0%"
+          top="45%"
           opacity="0.6"
           border="3px solid black"
+          color={colors["black"]}
+          css={`
+            ${media.lg`display: none`};
+          `}
+        />
+        <Blob
+          size="90px"
+          left="65%"
+          top="85%"
+          opacity="0.6"
+          border="3px dotted black"
           empty
         />
       </UpDownWide>
+      <ResponsiveBlob
+        size={10}
+        left="5%"
+        top="8%"
+        opacity="0.6"
+        border="3px solid black"
+        empty
+      />
       <Blob
         size="30px"
         left="65%"
         top="75%"
         opacity="0.8"
-        color={colors["black"]}
+        color={colors["grey-light"]}
       />
       <ResponsiveBlob
         size={40}
@@ -73,7 +79,7 @@ const Hero = ({ children, offset }) => (
         left="80%"
         top="-3%"
         opacity="0.5"
-        color={colors['grey-dark']}
+        color={colors["grey-dark"]}
       />
     </Divider>
     <Content speed={0.4} offset={offset}>
