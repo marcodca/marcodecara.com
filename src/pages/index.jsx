@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
+import { ScaleUp } from '../styles/animations'
 
 // Components
 import Layout from '../components/Layout'
@@ -65,13 +66,19 @@ const Index = () => (
     <Layout />
     <Parallax pages={5}>
       <Hero offset={0}>
-        <BigTitle>
-          Hey there, <br /> 
-          <BigTitleName>
-            I'm Marco.
-          </BigTitleName>
-        </BigTitle>
-        <Subtitle>I enjoy making web apps and blobs.</Subtitle>
+        <ScaleUp delay={100}>
+          <BigTitle>
+            Hey there, <br />
+            <ScaleUp delay={150}> 
+              <BigTitleName>
+                I'm Marco.
+              </BigTitleName>
+            </ScaleUp>
+          </BigTitle>
+        </ScaleUp>
+        <ScaleUp delay={175}> 
+          <Subtitle>I enjoy making web apps and blobs.</Subtitle>
+        </ScaleUp>
       </Hero>
       <Projects offset={1}>
         <Title>Projects</Title>

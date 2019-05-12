@@ -40,6 +40,20 @@ const upDownWide = keyframes`
   }
 `
 
+const scaleUp = keyframes`
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`
+const scaleUpAnimation = delay => css`
+  ${scaleUp} 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${delay}ms both;
+`
+
 const upDownAnimation = css`
   ${upDown} 4s ease-in-out infinite alternate;
 `
@@ -57,6 +71,9 @@ export const UpDownWide = styled.div`
   animation: ${upDownWideAnimation};
   ${tw`pin absolute`};
 `
+export const ScaleUp = styled.div`
+  animation: ${props => scaleUpAnimation(props.delay)};
+`
 
 export const waveAnimation = length => css`
   animation: ${wave} ${length} linear infinite alternate;
@@ -65,3 +82,5 @@ export const waveAnimation = length => css`
 export const rotateAnimation = length => css`
   animation: ${rotate} ${length} linear infinite;
 `
+
+

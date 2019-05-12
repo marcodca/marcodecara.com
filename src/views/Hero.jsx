@@ -1,13 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import tw from "tailwind.macro";
-import { colors } from "../../tailwind";
-import { Divider } from "../elements/Dividers";
-import Content from "../elements/Content";
+import React from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
+import tw from "tailwind.macro"
+import { colors } from "../../tailwind"
+import { Divider } from "../elements/Dividers"
+import Content from "../elements/Content"
 import { UpDown, UpDownWide } from "../styles/animations";
-import { Blob, ResponsiveBlob, DoubleBlob } from "../components/Blobs";
-import { media } from "../styles/utils";
+import { Blob, ResponsiveBlob, DoubleBlob } from "../components/Blobs"
+import { media } from "../styles/utils"
+import { ScaleUp } from '../styles/animations'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -25,17 +26,19 @@ const Hero = ({ children, offset }) => (
           border="1px solid black"
           color={colors.white}
         />
-        <DoubleBlob
-          outerColor={"black"}
-          innerColor={"white"}
-          size={20}
-          left="56%"
-          top="10%"
-          shadow
-          css={`
-            ${media.md`top: 0`};
-          `}
-        />
+        <ScaleUp delay={175}> 
+          <DoubleBlob
+            outerColor={"black"}
+            innerColor={"white"}
+            size={20}
+            left="52%"
+            top="10%"
+            shadow
+            css={`
+              ${media.md`top: 0`};
+            `}
+          />
+        </ScaleUp>
       </UpDown>
       <UpDownWide>
         <Blob
@@ -68,10 +71,11 @@ const Hero = ({ children, offset }) => (
       />
       <Blob
         size="30px"
-        left="65%"
+        left="75%"
         top="75%"
-        opacity="0.8"
-        color={colors["grey-light"]}
+        opacity="1"
+        color={colors["grey"]}
+        border="1px solid white"
       />
       <ResponsiveBlob
         size={40}
