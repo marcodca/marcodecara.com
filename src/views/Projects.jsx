@@ -10,7 +10,7 @@ import { colors } from '../../tailwind'
 const Projects = ({ children, offset }) => (
   <>
     <DividerMiddle
-      bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
+      bg={`linear-gradient(to right, ${colors['grey-darkest']} 0%, ${colors['grey-dark']} 100%)`}
       speed={-0.2}
       offset={`${offset}.1`}
       factor={2}
