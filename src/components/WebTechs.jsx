@@ -15,8 +15,8 @@ const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 70}px,0)`;
 const trans3 = (x, y) => `translate3d(${x / 6 - 120}px,${y + 200}px,0)`;
 const trans4 = (x, y) => `translate3d(${x / 3.5 + 130}px,${y / 3.5 + 210}px,0)`;
 
-export const Container = styled.div`
-  ${tw`w-1/3 flex align-center justify-center h-auto`}
+const Container = styled.div`
+  ${tw`w-1/3 flex align-center justify-center h-1/3`}
 `;
 
 const Icon = styled(animated.div)`
@@ -26,8 +26,8 @@ const Icon = styled(animated.div)`
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  min-width: ${props => props.size * 12}px;
-  min-height: ${props => props.size * 12}px;
+  min-width: ${props => props.size * 11}px;
+  min-height: ${props => props.size * 11}px;
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
   max-width: ${props => props.size * 1.5 }vw;
