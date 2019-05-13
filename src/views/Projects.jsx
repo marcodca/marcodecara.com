@@ -15,7 +15,7 @@ const WebTechsWrapper = styled.div`
   top: 60%;
 `;
 
-const Projects = ({ children, offset }) => (
+const Skills = ({ children, offset }) => (
   <>
     <DividerMiddle
       bg={`linear-gradient(to right, ${colors['grey-darkest']} 0%, ${colors['grey-dark']} 100%)`}
@@ -38,9 +38,9 @@ const Projects = ({ children, offset }) => (
   </>
 )
 
-export default Projects
+export default Skills
 
-Projects.propTypes = {
+Skills.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired,
 }

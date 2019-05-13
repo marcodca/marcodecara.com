@@ -7,7 +7,6 @@ import { media } from '../styles/utils'
 
 // Components
 import Layout from "../components/Layout";
-import ProjectCard from "../components/ProjectCard";
 
 // Elements
 import Inner from "../elements/Inner";
@@ -15,25 +14,11 @@ import { Title, BigTitle, Subtitle } from "../elements/Titles";
 
 // Views
 import Hero from "../views/Hero";
-import Projects from "../views/Projects";
+import Skills from "../views/Projects";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
 import avatar from "../images/avatar.jpg";
-
-const ProjectsWrapper = styled.div`
-  ${tw`flex flex-wrap justify-between mt-8`};
-  display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 1200px) {
-    grid-gap: 3rem;
-  }
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-gap: 2rem;
-  }
-`;
 
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-8`};
@@ -44,6 +29,10 @@ const Avatar = styled.img`
 `;
 
 const AboutSub = styled.h3`
+  ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  margin-bottom: 35vw;
+`;
+const SkillsIntro = styled.h3`
   ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
   margin-bottom: 35vw;
 `;
@@ -80,13 +69,13 @@ const Index = () => (
           <Subtitle>I enjoy making web apps and blobs.</Subtitle>
         </ScaleUp>
       </Hero>
-      <Projects offset={1}>
-        <AboutSub
+      <Skills offset={1}>
+        <SkillsIntro
           css={`${media.md`margin-bottom: 60vw`}`}
         >
-          Besides blobs, there are also some neat web technologies I like to play around with, like React, GatsbyJs, Styled-Components, among others. 
-        </AboutSub>
-      </Projects>
+          Besides blobs, there are also some neat web technologies I like to play around with, like <a href="https://reactjs.org/"> React </a>, <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>, <a href="https://www.styled-components.com/">styled-components</a>, <a href="https://graphql.org/"> GraphQL</a>, among others. 
+        </SkillsIntro>
+      </Skills>
       <About offset={3}>
         <Title>About</Title>
         <AboutHero>
