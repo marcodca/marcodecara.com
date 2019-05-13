@@ -21,16 +21,15 @@ import Contact from "../views/Contact";
 import avatar from "../images/avatar.jpg";
 
 const AboutHero = styled.div`
-  ${tw`flex flex-col lg:flex-row items-center mt-8`};
+  ${tw`flex flex-col lg:flex-row items-center mt-24`};
 `;
 
 const Avatar = styled.img`
   ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 
-const AboutSub = styled.h3`
+const MeIntro = styled.span`
   ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
-  margin-bottom: 35vw;
 `;
 const SkillsIntro = styled.h3`
   ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
@@ -77,16 +76,14 @@ const Index = () => (
         </SkillsIntro>
       </Skills>
       <About offset={3}>
-        <Title>About</Title>
+        <Title>Me</Title>
         <AboutHero>
           <Avatar src={avatar} alt="John Doe" />
-          <AboutSub>
-            The English language can not fully capture the depth and complexity
-            of my thoughts. So I'm incorporating Emoji into my speech to better
-            express myself. Winky face.
-          </AboutSub>
+          <MeIntro>
+            I'm a Copenhaguen based full-stack(ish) web developer, with a bent for front-end and design. Former Hack Your Future student, I'm always trying to stay tuned with the new techs,and in constant persuit of challanges.   
+          </MeIntro>
         </AboutHero>
-        <AboutDesc>
+        {/* <AboutDesc>
           You know the way you feel when you see a picture of two otters holding
           hands? That's how you're gonna feel every day. My mother cried the day
           I was born because she knew she’d never be prettier than me. You
@@ -94,7 +91,7 @@ const Index = () => (
           great hair and I love lying. Captain? The kids want to know where
           Paulie the Pigeon is. I told them he got sucked up into an airplane
           engine, is that all right?
-        </AboutDesc>
+        </AboutDesc> */}
       </About>
       <Contact offset={4}>
         <Inner>
