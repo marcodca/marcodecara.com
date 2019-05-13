@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   a {
-    color: #e07628;
+    color: ${colors['red-main']};
     text-decoration: none;
   }
 `
