@@ -1,8 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";
+import { media } from '../styles/utils'
 
 // Components
 import Layout from "../components/Layout";
@@ -42,8 +43,9 @@ const Avatar = styled.img`
   ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 
-const AboutSub = styled.span`
-  ${tw`text-white font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+const AboutSub = styled.h3`
+  ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  margin-bottom: 35vw;
 `;
 
 const AboutDesc = styled.p`
@@ -79,11 +81,10 @@ const Index = () => (
         </ScaleUp>
       </Hero>
       <Projects offset={1}>
-        <Title>Me</Title>
-        <br />
-        <AboutSub>
-          I'm a Copenhagen based web developer. Former Hack Your Future student.
-          Besides blobs, I like using techonoligies like...
+        <AboutSub
+          css={`${media.md`margin-bottom: 60vw`}`}
+        >
+          Besides blobs, there are also some neat web technologies I like to play around with, like React, GatsbyJs, Styled-Components, among others. 
         </AboutSub>
       </Projects>
       <About offset={3}>
