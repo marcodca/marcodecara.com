@@ -14,7 +14,7 @@ import { Title, BigTitle, Subtitle } from "../elements/Titles";
 
 // Views
 import Hero from "../views/Hero";
-import Skills from "../views/Projects";
+import Skills from "../views/Skills";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
