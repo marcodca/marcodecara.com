@@ -11,7 +11,7 @@ import styledComponentsIcon from "../images/icons/styled-components-icon.svg";
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 70}px,0)`;
-const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
+const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y + 200}px,0)`;
 const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
 export const Container = styled.div`
@@ -50,12 +50,12 @@ const WebTechs = () => {
         style={{ transform: props.xy.interpolate(trans1) }}
         />
       <Icon
-        size={11}
+        size={13}
         icon={gatbsyIcon} 
         style={{ transform: props.xy.interpolate(trans2) }}
         />
       <Icon
-        size={15}
+        size={11}
         icon={styledComponentsIcon} 
         style={{ transform: props.xy.interpolate(trans3) }}
         />

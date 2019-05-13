@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
   /* background by SVGBackgrounds.com */
+  ::selection {
+      background-color: ${colors.black};
+      color: ${colors['grey-light']};
+    }
+
   html, body {
     width: 100%;
     height: 100%;
