@@ -80,7 +80,7 @@ const Index = () => (
         <AboutHero>
           <Avatar src={avatar} alt="Black bike in Copenhagen" />
           <MeIntro>
-            I'm a Copenhagen based full-stack(ish) web developer, with a bent for front-end and design. Former <a href="https://www.hackyourfuture.net/"> Hack Your Future student</a>, I'm always trying to stay tuned with the new techs within the industry, and in constant pursuit of challenges.   
+            I'm a Copenhagen based full-stack(ish) web developer, with a bent for front-end and design. Former <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>student, I'm always trying to stay tuned with the new techs within the industry, and in constant pursuit of challenges.   
           </MeIntro>
         </AboutHero>
         {/* <AboutDesc>
