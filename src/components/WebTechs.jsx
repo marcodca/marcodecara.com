@@ -5,6 +5,8 @@ import tw from "tailwind.macro";
 //icons
 import reactIcon from "../images/icons/react-icon.svg";
 import gatbsyIcon from "../images/icons/gatsby-icon.svg";
+import styledComponentsIcon from "../images/icons/styled-components-icon.svg";
+
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
@@ -13,9 +15,7 @@ const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
 const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
 export const Container = styled.div`
-  ${tw`w-1/3 flex align-center justify-center`}
-  background-color: green;
-  height: 50%;
+  ${tw`w-1/3 flex align-center justify-center h-auto`}
 `;
 
 const Icon = styled(animated.div)`
@@ -25,22 +25,13 @@ const Icon = styled(animated.div)`
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-`;
-
-const ReactIcon = styled(Icon)`
-  min-width: 60ch;
-  min-height: 60ch;
-  width: 20vw;
-  height: 20vw;
-  max-width: 100ch;
-  max-height: 100ch;
-  background-image: url(${reactIcon});
-`;
-
-const GatsbyIcon = styled(Icon)`
-  width: 20ch;
-  height: 20ch;
-  background-image: url(${gatbsyIcon});
+  min-width: ${props => props.size * 7}px;
+  min-height: ${props => props.size * 7}px;
+  width: ${props => props.size}vw;
+  height: ${props => props.size}vw;
+  max-width: ${props => props.size * 1.5 }vw;
+  max-height: ${props => props.size* 1.5 }vw;
+  background-image: ${props => `url(${props.icon})`};
 `;
 
 const WebTechs = () => {
@@ -53,8 +44,22 @@ const WebTechs = () => {
     <Container
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-      <ReactIcon style={{ transform: props.xy.interpolate(trans1) }} />
-      <GatsbyIcon style={{ transform: props.xy.interpolate(trans2) }}/>
+      <Icon
+        size={35}
+        icon={reactIcon} 
+        style={{ transform: props.xy.interpolate(trans1) }}
+        />
+      <Icon
+        size={11}
+        icon={gatbsyIcon} 
+        style={{ transform: props.xy.interpolate(trans2) }}
+        />
+      <Icon
+        size={15}
+        icon={styledComponentsIcon} 
+        style={{ transform: props.xy.interpolate(trans3) }}
+        />
+      {/* <GatsbyIcon style={{ transform: props.xy.interpolate(trans2) }}/> */}
     </Container>
   );
 };
