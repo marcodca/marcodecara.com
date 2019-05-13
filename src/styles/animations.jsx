@@ -36,7 +36,7 @@ const upDownWide = keyframes`
     transform: translateY(0);
   }
   to {
-    transform: translateY(200px);
+    transform: translateY(20vh);
   }
 `
 
