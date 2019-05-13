@@ -63,6 +63,7 @@ const colors = {
   'red-darker': '#6a1b19',
   'red-dark': '#cc1f1a',
   red: '#bf381a',
+  'red-main' : '#fa2742',
   'red-light': '#ef5753',
   'red-lighter': '#f9acaa',
   'red-lightest': '#fcebea',
