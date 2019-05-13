@@ -5,7 +5,7 @@ import tw from "tailwind.macro";
 import { Divider, DividerMiddle } from "../elements/Dividers";
 import Content from "../elements/Content";
 import Inner from "../elements/Inner";
-import { Blob } from "../components/Blobs";
+import { Blob, ResponsiveBlob } from "../components/Blobs";
 import WebTechs from "../components/WebTechs";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { media } from '../styles/utils';
@@ -35,6 +35,13 @@ const Skills = ({ children, offset }) => (
     </Content>
     <Divider speed={0.1} offset={offset} factor={2}>
       <UpDown />
+      <ResponsiveBlob
+        size={10}
+        left="5%"
+        top="13%"
+        opacity="0.6"
+        border="3px solid black"
+      />
       <UpDownWide>
         <Blob
           size="110px"
@@ -46,6 +53,14 @@ const Skills = ({ children, offset }) => (
           back
         />
       </UpDownWide>
+      <ResponsiveBlob
+        size={5}
+        left="85%"
+        top="95%"
+        opacity="0.2"
+        border="3px solid black"
+        empty
+      />
     </Divider>
   </>
 );

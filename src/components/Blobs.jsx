@@ -8,7 +8,7 @@ import { hidden } from '../styles/utils'
 //Todo: combine responsive and regular blobs into one.
 
 export const Blob = styled(blob)`
-  ${tw`absolute`};
+  ${tw`absolute z-20`};
   ${props => props.back && tw`z-0`}
   ${props => props.hiddenMobile && hidden};
   top: ${props => props.top};

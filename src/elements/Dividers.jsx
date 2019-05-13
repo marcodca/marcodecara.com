@@ -3,7 +3,7 @@ import tw from 'tailwind.macro'
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
 
 export const Divider = styled(ParallaxLayer)`
-  ${tw`absolute w-full h-full`};
+  ${tw`absolute w-full h-full z-10`};
   background: ${props => props.bg};
   svg {
     fill: ${props => props.fill};

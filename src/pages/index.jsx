@@ -73,7 +73,7 @@ const Index = () => (
         <SkillsIntro
           css={`${media.md`margin-bottom: 60vw`}`}
         >
-          Besides blobs, there are also some neat web technologies I like to play around with, like <a href="https://reactjs.org/"> React </a>, <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>, <a href="https://www.styled-components.com/">styled-components</a>, <a href="https://graphql.org/"> GraphQL</a>, among others. 
+          Besides blobs, there are also some neat web technologies I like to play around with, like <a href="https://reactjs.org/"> React</a>, <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>, <a href="https://www.styled-components.com/"> styled-components</a> and <a href="https://graphql.org/">   GraphQL</a>, among others. 
         </SkillsIntro>
       </Skills>
       <About offset={3}>
