@@ -7,7 +7,6 @@ import Content from '../elements/Content'
 import { UpDown, UpDownWide, waveAnimation, UpAndfadeOut } from '../styles/animations'
 import { ResponsiveBlob } from '../components/Blobs'
 import { colors } from '../../tailwind'
-import SVG from '../components/SVG'
 
 const WaveWrapper = styled.div`
   ${tw`absolute pin-b w-full`};
@@ -47,10 +46,6 @@ const Contact = ({ children, offset }) => (
       {children}
     </Content>
     <Divider speed={0.1} offset={offset}>
-      {/* <UpDown>
-      </UpDown>
-      <UpDownWide>
-      </UpDownWide> */}
       <UpAndfadeOut delay={3}>
         <ResponsiveBlob
             size={3}

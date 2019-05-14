@@ -8,7 +8,6 @@ import Inner from "../elements/Inner";
 import { Blob, ResponsiveBlob } from "../components/Blobs";
 import WebTechs from "../components/WebTechs";
 import { UpDown, UpDownWide } from "../styles/animations";
-import { media } from '../styles/utils';
 import { colors } from "../../tailwind";
 
 const WebTechsWrapper = styled.div`

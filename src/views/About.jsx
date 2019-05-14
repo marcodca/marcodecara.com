@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "styled-components";
 import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import Inner from "../elements/Inner";

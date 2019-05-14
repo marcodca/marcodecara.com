@@ -18,33 +18,32 @@ import Skills from "../views/Skills";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
+//Assets
 import avatar from "../images/avatar.png";
 import githubIcon from "../images/icons/github-icon.svg";
 import logo from "../images/logo.png";
 
-const AboutHero = styled.div`
-  ${tw`flex flex-col lg:flex-row items-center mt-24`};
+const BigTitleName = styled.span`
+  font-size: 115%;
 `;
 
-const Avatar = styled.img`
-  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
-  filter: grayscale(80%);
-`;
-
-const MeIntro = styled.span`
-  ${tw`text-white leading-normal font-sans pt-8 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
-  ${media.sm`margin-bottom: 20vh`};
-`;
 const SkillsIntro = styled.h3`
   ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
   margin-bottom: 35vw;
 `;
 
-const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
+const MeHero = styled.div`
+  ${tw`flex flex-col lg:flex-row items-center mt-24`};
 `;
-const BigTitleName = styled.span`
-  font-size: 115%;
+
+const MeText = styled.span`
+  ${tw`text-white leading-normal font-sans pt-8 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${media.sm`margin-bottom: 20vh`};
+`;
+
+const Avatar = styled.img`
+  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+  filter: grayscale(80%);
 `;
 
 const ContactText = styled.p`
@@ -87,16 +86,16 @@ const Index = () => (
       </Skills>
       <About offset={3}>
         <Title>Me</Title>
-        <AboutHero>
+        <MeHero>
           <Avatar src={avatar} alt="Black bike in Copenhagen" />
-          <MeIntro>
+          <MeText>
             I'm a Copenhagen based full-stack(ish) web developer, with a bent
             for front-end and design. Former{" "}
             <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>
             student, I'm always trying to stay tuned with the new techs within
             the industry, and in constant pursuit of challenges.
-          </MeIntro>
-        </AboutHero>
+          </MeText>
+        </MeHero>
       </About>
       <Contact offset={4}>
         <Inner>
