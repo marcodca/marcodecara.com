@@ -31,7 +31,7 @@ const Hero = ({ children, offset }) => (
             outerColor={"black"}
             innerColor={"white"}
             size={20}
-            left="52%"
+            left="55%"
             top="10%"
             shadow
             css={`
@@ -41,17 +41,6 @@ const Hero = ({ children, offset }) => (
         </ScaleUp>
       </UpDown>
       <UpDownWide>
-        <Blob
-          size="90px"
-          left="0%"
-          top="45%"
-          opacity="0.6"
-          border="3px solid black"
-          color={colors["black"]}
-          css={`
-            ${media.lg`display: none`};
-          `}
-        />
         <Blob
           size="90px"
           left="65%"

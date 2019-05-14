@@ -11,7 +11,7 @@ import { Blob, ResponsiveBlob } from "../components/Blobs";
 const About = ({ children, offset }) => (
   <>
     <Divider
-      bg="#23262b"
+      bg={colors['blue-grey']}
       clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
       speed={0.2}
       offset={offset}
