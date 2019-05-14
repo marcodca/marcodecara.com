@@ -57,7 +57,7 @@ const Skills = ({ children, offset }) => (
         left="85%"
         top="95%"
         opacity="0.2"
-        border="3px solid black"
+        border="10px solid black"
         empty
         hiddenMobile
       />
