@@ -4,7 +4,8 @@ import tw from 'tailwind.macro'
 import styled from 'styled-components'
 import { Divider } from '../elements/Dividers'
 import Content from '../elements/Content'
-import { UpDown, UpDownWide, waveAnimation } from '../styles/animations'
+import { UpDown, UpDownWide, waveAnimation, UpAndfadeOut } from '../styles/animations'
+import { ResponsiveBlob } from '../components/Blobs'
 import { colors } from '../../tailwind'
 import SVG from '../components/SVG'
 
@@ -50,6 +51,14 @@ const Contact = ({ children, offset }) => (
       </UpDown>
       <UpDownWide>
       </UpDownWide>
+      <UpAndfadeOut>
+      <ResponsiveBlob
+          size={4}
+          left="65%"
+          top="85%"
+          color="#23262b"
+      />
+      </UpAndfadeOut>  
     </Divider>
   </>
 )

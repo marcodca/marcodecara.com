@@ -104,10 +104,10 @@ const Index = () => (
             Lets talk
           </Title>
           <ContactText>
-            Say <a href="mailto:marcodecara@gmail.com">Hi</a> or find me on
+            Say <a href="mailto:marcodecara@gmail.com">Hi</a>, or find me on
             other platforms:{" "}
             <a href="https://www.linkedin.com/in/marco-de-cara-1b409013a/">Linkedin</a> &{" "}
-            <a href="https://github.com/marcodca/">Github</a>
+            <a href="https://github.com/marcodca/">Github</a>.
           </ContactText>
         </Inner>
         <Footer>
