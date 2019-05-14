@@ -77,8 +77,8 @@ const upDownWideAnimation = css`
   ${upDownWide} 18s ease-in-out infinite alternate;
 `;
 
-const upAndfadeOutAnimation = css`
-  ${upAndfadeOut} 18s ease-out infinite;
+const upAndfadeOutAnimation = (delay = 0) => css`
+  ${upAndfadeOut} 18s ease-out ${delay}s infinite;
 `
 
 export const UpDown = styled.div`
@@ -92,7 +92,7 @@ export const UpDownWide = styled.div`
 `;
 
 export const UpAndfadeOut = styled.div`
-  animation : ${upAndfadeOutAnimation};
+  animation : ${props => upAndfadeOutAnimation(props.delay)};
   ${tw`pin absolute`};
 `
 

@@ -27,7 +27,7 @@ const InnerWave = styled.div`
 
 const Contact = ({ children, offset }) => (
   <>
-    <Divider fill="#23262b" speed={0.2} offset={offset}>
+    <Divider fill={colors['blue-grey']} speed={0.2} offset={offset}>
       <WaveWrapper>
         <InnerWave>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 338.05" preserveAspectRatio="none">
@@ -47,17 +47,25 @@ const Contact = ({ children, offset }) => (
       {children}
     </Content>
     <Divider speed={0.1} offset={offset}>
-      <UpDown>
+      {/* <UpDown>
       </UpDown>
       <UpDownWide>
-      </UpDownWide>
-      <UpAndfadeOut>
-      <ResponsiveBlob
-          size={4}
-          left="65%"
-          top="85%"
-          color="#23262b"
-      />
+      </UpDownWide> */}
+      <UpAndfadeOut delay={3}>
+        <ResponsiveBlob
+            size={3}
+            left="25%"
+            top="90%"
+            color={colors['blue-grey']}
+        />
+      </UpAndfadeOut>  
+      <UpAndfadeOut >
+        <ResponsiveBlob
+            size={4}
+            left="65%"
+            top="85%"
+            color={colors['blue-grey']}
+        />
       </UpAndfadeOut>  
     </Divider>
   </>
