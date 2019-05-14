@@ -7,7 +7,7 @@ import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 import { Blob, ResponsiveBlob } from "../components/Blobs";
 
-const About = ({ children, offset }) => (
+const Me = ({ children, offset }) => (
   <>
     <Divider
       bg={colors['blue-grey']}
@@ -66,9 +66,9 @@ const About = ({ children, offset }) => (
   </>
 );
 
-export default About;
+export default Me;
 
-About.propTypes = {
+Me.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired
 };

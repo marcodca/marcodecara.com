@@ -15,7 +15,7 @@ import { Title, BigTitle, Subtitle } from "../elements/Titles";
 // Views
 import Hero from "../views/Hero";
 import Skills from "../views/Skills";
-import About from "../views/About";
+import Me from "../views/Me";
 import Contact from "../views/Contact";
 
 //Assets
@@ -48,6 +48,7 @@ const Avatar = styled.img`
 
 const ContactText = styled.p`
   ${tw`text-grey-darkest font-sans text-xl md:text-2xl lg:text-3xl`};
+  line-height: 1.2;
 `;
 
 const Footer = styled.footer`
@@ -84,10 +85,10 @@ const Index = () => (
           and <a href="https://graphql.org/"> GraphQL</a>, among others.
         </SkillsIntro>
       </Skills>
-      <About offset={3}>
+      <Me offset={3}>
         <Title>Me</Title>
         <MeHero>
-          <Avatar src={avatar} alt="Black bike in Copenhagen" />
+          <Avatar src={avatar} alt="Marco de Cara's photo" />
           <MeText>
             I'm a Copenhagen based full-stack(ish) web developer, with a bent
             for front-end and design. Former{" "}
@@ -96,7 +97,7 @@ const Index = () => (
             the industry, and in constant pursuit of challenges.
           </MeText>
         </MeHero>
-      </About>
+      </Me>
       <Contact offset={4}>
         <Inner>
           <Title
