@@ -19,6 +19,8 @@ import About from "../views/About";
 import Contact from "../views/Contact";
 
 import avatar from "../images/avatar.jpg";
+import githubIcon from "../images/icons/github-icon.svg";
+import logo from "../images/logo.png";
 
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-24`};
@@ -48,7 +50,7 @@ const ContactText = styled.p`
 `;
 
 const Footer = styled.footer`
-  ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
+  ${tw`text-center w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
 const Index = () => (
@@ -106,16 +108,27 @@ const Index = () => (
           <ContactText>
             Say <a href="mailto:marcodecara@gmail.com">Hi</a>, or find me on
             other platforms:{" "}
-            <a href="https://www.linkedin.com/in/marco-de-cara-1b409013a/">Linkedin</a> &{" "}
-            <a href="https://github.com/marcodca/">Github</a>.
+            <a href="https://www.linkedin.com/in/marco-de-cara-1b409013a/">
+              Linkedin
+            </a>{" "}
+            & <a href="https://github.com/marcodca/">Github</a>.
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2019 by Gatsby Starter Portfolio Cara.{" "}
-          <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">
-            Github Repository
+          <a href="https://github.com/marcodca/marcodecara.com">
+            <img width="30px" src={githubIcon} />
           </a>
-          . Made by <a href="https://www.lekoarts.de">LekoArts</a>.
+          <span css={tw`flex items-center space-between`}>
+            Made by
+            <a href="https://github.com/marcodca">
+              <img 
+                width="30px" 
+                src={logo}
+                css={tw`ml-3`} 
+                />
+            </a>
+          </span>
+          <a href="#">Credits</a>
         </Footer>
       </Contact>
     </Parallax>
