@@ -5,8 +5,8 @@ module.exports = {
 
   siteTitle: 'Marco de Cara', // Navigation and Site Title
   siteTitleAlt: 'Marco, web developer in Copenhagen', // Alternative Site title for SEO
-  siteTitleShort: 'MarcoDC', // short_name for manifest
-  siteHeadline: 'Marco de Cara is a web developer based in Copenhagen, he likes React, Gatsby, styled-components, and a bunch of other stuff', // Headline for schema.org JSONLD
+  siteTitleShort: 'Marco', // short_name for manifest
+  siteHeadline: 'Marco de Cara is a web developer based in Copenhagen, he likes React, Gatsby, styled-components, and a bunch of other neat web techs', // Headline for schema.org JSONLD
   siteUrl: 'https://marcodecara.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logo.png', // Used for SEO and manifest

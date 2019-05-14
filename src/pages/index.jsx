@@ -32,7 +32,8 @@ const Avatar = styled.img`
 `;
 
 const MeIntro = styled.span`
-  ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${tw`text-white leading-normal font-sans pt-8 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${media.sm`margin-bottom: 20vh`};
 `;
 const SkillsIntro = styled.h3`
   ${tw`text-white leading-normal font-sans pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
@@ -51,7 +52,7 @@ const ContactText = styled.p`
 `;
 
 const Footer = styled.footer`
-  ${tw`text-center w-full md:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
+  ${tw`text-center w-full md:w-2/3 lg:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
 const Index = () => (
@@ -125,7 +126,7 @@ const Index = () => (
               <img 
                 width="30px" 
                 src={logo}
-                css={tw`ml-1 md:ml-3`} 
+                css={`${tw`ml-1 md:ml-3`} filter : invert(100%)`} 
               />
             </a>
           </span>
