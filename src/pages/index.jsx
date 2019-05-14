@@ -28,6 +28,7 @@ const AboutHero = styled.div`
 
 const Avatar = styled.img`
   ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+  filter: grayscale(80%);
 `;
 
 const MeIntro = styled.span`
