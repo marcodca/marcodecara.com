@@ -18,7 +18,7 @@ import Skills from "../views/Skills";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
-import avatar from "../images/avatar.jpg";
+import avatar from "../images/avatar.png";
 import githubIcon from "../images/icons/github-icon.svg";
 import logo from "../images/logo.png";
 
@@ -50,7 +50,7 @@ const ContactText = styled.p`
 `;
 
 const Footer = styled.footer`
-  ${tw`text-center w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
+  ${tw`text-center w-full md:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
 const Index = () => (
@@ -124,8 +124,8 @@ const Index = () => (
               <img 
                 width="30px" 
                 src={logo}
-                css={tw`ml-3`} 
-                />
+                css={tw`ml-1 md:ml-3`} 
+              />
             </a>
           </span>
           <a href="#">Credits</a>
