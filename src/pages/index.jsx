@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";
-import { media } from '../styles/utils'
+import { media } from "../styles/utils";
 
 // Components
 import Layout from "../components/Layout";
@@ -44,7 +44,7 @@ const BigTitleName = styled.span`
 `;
 
 const ContactText = styled.p`
-  ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
+  ${tw`text-grey-darkest font-sans text-xl md:text-2xl lg:text-3xl`};
 `;
 
 const Footer = styled.footer`
@@ -70,9 +70,15 @@ const Index = () => (
       </Hero>
       <Skills offset={1}>
         <SkillsIntro
-          css={`${media.md`margin-bottom: 60vw`}`}
+          css={`
+            ${media.md`margin-bottom: 60vw`}
+          `}
         >
-          Besides blobs, there are also some neat web technologies I like to play around with, like <a href="https://reactjs.org/"> React</a>, <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>, <a href="https://www.styled-components.com/"> styled-components</a> and <a href="https://graphql.org/">   GraphQL</a>, among others. 
+          Besides blobs, there are also some neat web technologies I like to
+          play around with, like <a href="https://reactjs.org/"> React</a>,{" "}
+          <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>,{" "}
+          <a href="https://www.styled-components.com/"> styled-components</a>{" "}
+          and <a href="https://graphql.org/"> GraphQL</a>, among others.
         </SkillsIntro>
       </Skills>
       <About offset={3}>
@@ -80,27 +86,28 @@ const Index = () => (
         <AboutHero>
           <Avatar src={avatar} alt="Black bike in Copenhagen" />
           <MeIntro>
-            I'm a Copenhagen based full-stack(ish) web developer, with a bent for front-end and design. Former <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>student, I'm always trying to stay tuned with the new techs within the industry, and in constant pursuit of challenges.   
+            I'm a Copenhagen based full-stack(ish) web developer, with a bent
+            for front-end and design. Former{" "}
+            <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>
+            student, I'm always trying to stay tuned with the new techs within
+            the industry, and in constant pursuit of challenges.
           </MeIntro>
         </AboutHero>
-        {/* <AboutDesc>
-          You know the way you feel when you see a picture of two otters holding
-          hands? That's how you're gonna feel every day. My mother cried the day
-          I was born because she knew she’d never be prettier than me. You
-          should make me your campaign manager. I was born for politics. I have
-          great hair and I love lying. Captain? The kids want to know where
-          Paulie the Pigeon is. I told them he got sucked up into an airplane
-          engine, is that all right?
-        </AboutDesc> */}
       </About>
       <Contact offset={4}>
         <Inner>
-          <Title>Get in touch</Title>
+          <Title
+            css={`
+              ${tw`text-black`}
+            `}
+          >
+            Lets talk
+          </Title>
           <ContactText>
-            Say <a href="mailto:plizNoSp4m@domain.tld">Hi</a> or find me on
+            Say <a href="mailto:marcodecara@gmail.com">Hi</a> or find me on
             other platforms:{" "}
-            <a href="https://dribbble.com/LekoArts">Dribbble</a> &{" "}
-            <a href="https://www.instagram.com/lekoarts.de/">Instagram</a>
+            <a href="https://www.linkedin.com/in/marco-de-cara-1b409013a/">Linkedin</a> &{" "}
+            <a href="https://github.com/marcodca/">Github</a>
           </ContactText>
         </Inner>
         <Footer>
