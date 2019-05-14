@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";

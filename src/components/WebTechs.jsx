@@ -26,8 +26,8 @@ const Icon = styled(animated.div)`
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  min-width: ${props => props.size * 11}px;
-  min-height: ${props => props.size * 11}px;
+  min-width: ${props => props.size * 9}px;
+  min-height: ${props => props.size * 9}px;
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
   max-width: ${props => props.size * 1.5 }vw;
