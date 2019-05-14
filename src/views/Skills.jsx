@@ -60,6 +60,7 @@ const Skills = ({ children, offset }) => (
         opacity="0.2"
         border="3px solid black"
         empty
+        hiddenMobile
       />
     </Divider>
   </>
