@@ -17,11 +17,10 @@ import Hero from "../views/Hero";
 import Skills from "../views/Skills";
 import Me from "../views/Me";
 import Contact from "../views/Contact";
+import Footer from '../views/Footer';
 
 //Assets
 import avatar from "../images/avatar.png";
-import githubIcon from "../images/icons/github-icon.svg";
-import logo from "../images/logo.png";
 
 const BigTitleName = styled.span`
   font-size: 115%;
@@ -51,9 +50,6 @@ const ContactText = styled.p`
   line-height: 1.2;
 `;
 
-const Footer = styled.footer`
-  ${tw`text-center w-full md:w-2/3 lg:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
-`;
 
 const Index = () => (
   <>
@@ -116,22 +112,7 @@ const Index = () => (
             & <a href="https://github.com/marcodca/">Github</a>.
           </ContactText>
         </Inner>
-        <Footer>
-          <a href="https://github.com/marcodca/marcodecara.com">
-            <img width="30px" src={githubIcon} />
-          </a>
-          <span css={tw`flex items-center space-between`}>
-            Made by
-            <a href="https://github.com/marcodca">
-              <img 
-                width="30px" 
-                src={logo}
-                css={`${tw`ml-1 md:ml-3`} filter : invert(100%)`} 
-              />
-            </a>
-          </span>
-          <a href="#">Credits</a>
-        </Footer>
+        <Footer />
       </Contact>
     </Parallax>
   </>

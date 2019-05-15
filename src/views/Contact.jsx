@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import tw from 'tailwind.macro'
 import styled from 'styled-components'
 import { Divider } from '../elements/Dividers'
 import Content from '../elements/Content'
-import { UpDown, UpDownWide, waveAnimation, UpAndfadeOut } from '../styles/animations'
+import { waveAnimation, UpAndfadeOut } from '../styles/animations'
 import { ResponsiveBlob } from '../components/Blobs'
 import { colors } from '../../tailwind'
 
