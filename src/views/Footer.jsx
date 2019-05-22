@@ -9,6 +9,11 @@ const StyledFooter = styled.footer`
   ${tw`text-center w-full md:w-2/3 lg:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
+const Ul = styled.ul`
+  ${tw`leading-relaxed font-sans p-4`}
+  list-style : none;
+`
+
 const Footer = () => {
   const [open, setOpen] = useState(false);
 
@@ -29,23 +34,57 @@ const Footer = () => {
           />
         </a>
       </span>
-      <a href="#" onClick={(event) => {
+      <a
+        href="#"
+        onClick={event => {
           event.preventDefault();
           setOpen(true);
-      }}>
+        }}
+      >
         Credits
       </a>
 
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        center
-      >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
-          hendrerit risus, sed porttitor quam.
-        </p>
+      <Modal open={open} onClose={() => setOpen(false)} center>
+        <Ul>
+          <li>
+            Project made in <a href="https://www.reactjs.org/">React</a> and
+            <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>.
+          </li>
+          <li>
+            Gatsby starter  
+            <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara"> Cara </a>
+            by <a href="https://www.lekoarts.de/"> Lekoarts</a>.
+          </li>
+          <li>
+            <a href="https://github.com/KyleAMathews/typefaces">Typefaces</a> by
+            <a href="https://www.bricolage.io/"> Kyle Mathews</a>
+          </li>
+          <li>
+            <a href="https://www.styled-components.com/">styled-components</a>
+          </li>
+          <li>
+            <a href="https://tailwindcss.com/"> Tailwind css</a>
+          </li>
+          <li>
+            <a href="https://www.react-spring.io/"> React spring</a>
+          </li>
+          <li>
+            Background by
+            <a href="https://www.svgbackgrounds.com/"> SVG backgrounds</a>
+          </li>
+          <li>
+            Icons by <a href="https://www.flaticon.com/"> flat icon</a>
+          </li>
+          <li>
+            <a href="https://www.npmjs.com/package/react-blob">react-blob</a>
+          </li>
+          <li>
+            <a href="https://www.npmjs.com/package/react-responsive-modal">react-responsive-modal</a>
+          </li>
+          <li>
+            <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a>
+          </li>
+        </Ul>
       </Modal>
     </StyledFooter>
   );
