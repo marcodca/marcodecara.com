@@ -4,6 +4,7 @@ import tw from "tailwind.macro";
 import githubIcon from "../images/icons/github-icon.svg";
 import logo from "../images/logo.png";
 import Modal from "react-responsive-modal";
+import spot from '../images/spot.svg'
 
 const StyledFooter = styled.footer`
   ${tw`text-center w-full md:w-2/3 lg:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
@@ -12,6 +13,20 @@ const StyledFooter = styled.footer`
 const Ul = styled.ul`
   ${tw`leading-relaxed font-sans p-4`}
   list-style : none;
+`
+
+const Li = styled.li`
+  ${tw`relative`}
+  ::before {
+    content : "";
+    width: 12px;
+    height: 12px;
+    background: url(${spot});
+    background-size: 12px;
+    position: absolute;
+    left: -15px;
+    top: 7px;
+  }
 `
 
 const Footer = () => {
@@ -48,42 +63,42 @@ const Footer = () => {
         <Ul>
           <li>
             Project made in <a href="https://www.reactjs.org/">React</a> and
-            <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>.
+            <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>
           </li>
-          <li>
+          <Li>
             Gatsby starter  
             <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara"> Cara </a>
-            by <a href="https://www.lekoarts.de/"> Lekoarts</a>.
-          </li>
-          <li>
+            by <a href="https://www.lekoarts.de/"> Lekoarts</a>
+          </Li>
+          <Li>
             <a href="https://github.com/KyleAMathews/typefaces">Typefaces</a> by
             <a href="https://www.bricolage.io/"> Kyle Mathews</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://www.styled-components.com/">styled-components</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://tailwindcss.com/"> Tailwind css</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://www.react-spring.io/"> React spring</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             Background by
             <a href="https://www.svgbackgrounds.com/"> SVG backgrounds</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             Icons by <a href="https://www.flaticon.com/"> flat icon</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://www.npmjs.com/package/react-blob">react-blob</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://www.npmjs.com/package/react-responsive-modal">react-responsive-modal</a>
-          </li>
-          <li>
+          </Li>
+          <Li>
             <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a>
-          </li>
+          </Li>
         </Ul>
       </Modal>
     </StyledFooter>
