@@ -86,7 +86,7 @@ const Index = () => (
         <MeHero>
           <Avatar src={avatar} alt="Marco de Cara's photo" />
           <MeText>
-            I'm a Copenhagen based full-stack(ish) web developer, with a bent
+            I'm a Barcelona based full-stack(ish) web developer, with a bent
             for front-end and design. Former{" "}
             <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>
             student, I'm always trying to stay tuned with the new techs within
