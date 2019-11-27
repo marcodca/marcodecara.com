@@ -16,6 +16,7 @@ import { Title, BigTitle, Subtitle } from "../elements/Titles";
 import Hero from "../views/Hero";
 import Skills from "../views/Skills";
 import Me from "../views/Me";
+import Showcase from "../views/Showcase";
 import Contact from "../views/Contact";
 import Footer from '../views/Footer';
 
@@ -37,7 +38,7 @@ const MeHero = styled.div`
 
 const MeText = styled.span`
   ${tw`text-white leading-normal font-sans pt-8 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
-  ${media.sm`margin-bottom: 20vh`};
+  ${media.sm`margin-bottom: 20vh;`}
 `;
 
 const Avatar = styled.img`
@@ -54,7 +55,7 @@ const ContactText = styled.p`
 const Index = () => (
   <>
     <Layout />
-    <Parallax pages={5}>
+    <Parallax pages={7}>
       <Hero offset={0}>
         <ScaleUp delay={100}>
           <BigTitle>
@@ -71,7 +72,7 @@ const Index = () => (
       <Skills offset={1}>
         <SkillsIntro
           css={`
-            ${media.md`margin-bottom: 60vw`}
+            ${media.md`margin-bottom: 60vw;`}
           `}
         >
           Besides blobs, there are also some neat web technologies I like to
@@ -94,7 +95,10 @@ const Index = () => (
           </MeText>
         </MeHero>
       </Me>
-      <Contact offset={4}>
+      <Showcase offset={4}>
+        <Title>Some stuff I built</Title>
+      </Showcase>
+      <Contact offset={6}>
         <Inner>
           <Title
             css={`

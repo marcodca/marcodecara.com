@@ -21,7 +21,7 @@ export const Blob = styled(blob)`
   box-shadow: ${props => props.shadow ? "-1px -2px 62px -2px rgba(0, 0, 0, 0.75)" : ""};
 `;
 
-//A responsive blob should take its size only as an integrer!
+//A responsive blob should take its size only as an integer!
 export const ResponsiveBlob = styled(Blob)`
   width : ${props => `${props.size}vw`};
   height : ${props => `${props.size}vw`};
