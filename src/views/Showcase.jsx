@@ -12,7 +12,7 @@ import { animated, useSpring } from "react-spring";
 import tw from "tailwind.macro";
 import ProjectCard from "../elements/ProjectCard";
 import projectsData from "../data/projects.json";
-import { media } from '../styles/utils';
+import { media } from "../styles/utils";
 
 const ProjectsContainer = styled.div`
   width: 90%;
@@ -20,9 +20,16 @@ const ProjectsContainer = styled.div`
   border: 3px solid red;
   margin: 0 auto;
   margin-top: 40vh;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  ${media.md`flex-direction: column;`}
+   */
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+  transform: rotateX(50deg) rotate(15deg);
+  /* ${media.md`flex-direction: column;`} */
+  ${media.md`grid-template-columns: 1fr;
+   grid-template-rows: 1fr 1fr 1fr;`}
 `;
 
 const ProjectBox = styled(animated.div)`
@@ -66,12 +73,12 @@ const Showcase = ({ children, offset }) => {
             //         setExpandedCard(i + 1);
             //     }}
             // >
-              <ProjectCard
-                projectData={project}
-                isExpanded={expandedCard === i + 1}
-                setExpandedCard={setExpandedCard}
-                i={i}
-              />
+            <ProjectCard
+              projectData={project}
+              isExpanded={expandedCard === i + 1}
+              setExpandedCard={setExpandedCard}
+              i={i}
+            />
             // </div>
           ))}
         </ProjectsContainer>

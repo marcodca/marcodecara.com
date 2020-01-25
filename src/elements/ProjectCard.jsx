@@ -55,17 +55,23 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
   const { title, description } = projectData;
 
   const ProjectBox = styled(animated.div)`
-    ${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg relative`}
+    ${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg`}
     /* width: 30%; */
   /* min-width: 200px; */
-  height: 200px; /*mock*/
+  min-width: 200px ;
+  min-height: 300px;
+
+  /* position: absolute; */
     background: white;
   `;
   const ProjectImage = styled(Img)`
     ${tw`h-full w-full`} /* background-position: top left; */
   `;
 
-  const ProjectTitle = styled.h3`${tw`m-0 p-3 w-full absolute z-10 border-radius-10 font-serif`} bottom: 0; background: ${colors["grey-light"]};`;
+  const ProjectTitle = styled.h3`
+    ${tw`m-0 p-3 w-full absolute z-10 border-radius-10 font-serif`} bottom: 0;
+    background: ${colors["grey-light"]};
+  `;
 
   // const projectBoxAnimation = useSpring({
   //   from: { backgroundSize: "15%", height: "20%", backgroundPositionY: "10px" },
@@ -75,12 +81,31 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
   //   config: config.molasses
   // });
 
+  const projectBoxNotSelectedProps = {
+    zIndex: -1,
+    position: "relative",
+    left: "0%",
+    height: "10vh",  
+    width: '30vw',
+    transform: "rotate(0deg) translateX(0%)",
+    boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)",
+  };
+  const projectBoxSelectedProps = {
+    zIndex: 0,
+    position: "absolute",
+    left: "50%",
+    height: "100vh",  
+    width: "80vw",
+    transform: "rotate(-15deg) translateX(-50%)",
+    boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)",
+  }
+
   const projectBoxAnimation = useSpring({
-    from: { transform: "rotateY(5deg)" },
+    from: projectBoxNotSelectedProps,
     to: isExpanded
-      ? { transform: "rotateY(0deg)" }
-      : { transform: "rotateY(5deg)" },
-    config: config.molasses
+    ? projectBoxSelectedProps
+    : projectBoxNotSelectedProps,
+    config: config.slow
   });
 
   const shadeAnimation = useSpring({
@@ -112,7 +137,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
 
   return (
     <ProjectBox
-      // style={projectBoxAnimation}
+      style={projectBoxAnimation}
       onClick={() => {
         setExpandedCard(i + 1);
       }}
@@ -123,9 +148,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
         objectPosition="left bottom"
         alt=""
         fluid={data.placeholderImage.childImageSharp.fluid}
-      >
-        
-      </ProjectImage>
+      ></ProjectImage>
       {/* {isExpanded && <Shade style={shadeAnimation} />} */}
       {/* {innerTransition.map(
         ({ item, key, props }) => item && <Shade key={key} style={props} />
