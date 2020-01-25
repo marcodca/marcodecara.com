@@ -35,7 +35,7 @@ const Hero = ({ children, offset }) => (
             top="10%"
             shadow
             css={`
-              ${media.md`top: 5%`};
+              ${media.md`top: 5%;`};
             `}
           />
         </ScaleUp>

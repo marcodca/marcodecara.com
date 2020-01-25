@@ -12,6 +12,7 @@ import { animated, useSpring } from "react-spring";
 import tw from "tailwind.macro";
 import ProjectCard from "../elements/ProjectCard";
 import projectsData from "../data/projects.json";
+import { media } from '../styles/utils';
 
 const ProjectsContainer = styled.div`
   width: 90%;
@@ -20,7 +21,8 @@ const ProjectsContainer = styled.div`
   margin: 0 auto;
   margin-top: 40vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  ${media.md`flex-direction: column;`}
 `;
 
 const ProjectBox = styled(animated.div)`
