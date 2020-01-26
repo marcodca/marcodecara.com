@@ -52,27 +52,22 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   `);
 
-
-
   const { title, description } = projectData;
 
   const ProjectBox = styled(animated.div)`
     ${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg`}
     /* width: 30%; */
   /* min-width: 200px; */
-  min-width: 280px;
+    min-width: 280px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-y: scroll;
-
-    /* position: absolute; */
     background: white;
   `;
   const ProjectImage = styled(Img)`
-    ${tw`h-full w-full`} /* background-position: top left; */
+    ${tw`h-full w-full`};
   `;
 
   const ProjectTitle = styled.h3`
@@ -95,8 +90,8 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     height: "10vh",
     width: "30vw",
     transform: "rotate(0deg) translateX(0%) rotateY(0deg)",
-    boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)",
-    minWidth: "0px"
+    boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)"
+    // minWidth: "500px"
   };
   const projectBoxSelectedProps = {
     zIndex: 0,
@@ -105,8 +100,8 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     height: "100vh",
     width: "110vw",
     transform: "rotate(-15deg) translateX(-50%) rotateY(50deg)",
-    boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)",
-    minWidth: "730px"
+    boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)"
+    // minWidth: "0px"
   };
 
   const projectBoxAnimation = useSpring({
@@ -115,7 +110,8 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     // config: config.slow
   });
 
-  const sampleContent =  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam quis omnis magni doloribus, vero labore rerum ipsa aliquam facilis inventore placeat quibusdam maiores nulla sunt est numquam consequatur cupiditate natus eum perspiciatis. Dolor tenetur recusandae praesentium itaque, esse necessitatibus corrupti, adipisci voluptas veniam sint natus odio aliquid labore consequuntur consectetur ullam possimus! Voluptatem porro laborum culpa dolor temporibus fugiat voluptates blanditiis magnam omnis, dolorem, eius rem, aut perspiciatis corporis nostrum. Quod quaerat commodi aliquam nulla dolore delectus? Eum iste eaque maxime quasi Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam quis omnis magni doloribus, vero labore rerum ipsa aliquam facilis inventore placeat quibusdam maiores nulla sunt est numquam consequatur cupiditate natus eum perspiciatis. Dolor tenetur recusandae praesentium itaque, esse necessitatibus corrupti, adipisci voluptas veniam sint natus odio aliquid labore consequuntur consectetur ullam possimus! Voluptatem porro laborum culpa dolor temporibus fugiat voluptates blanditiis magnam omnis, dolorem, eius rem, aut perspiciatis corporis nostrum. Quod quaerat commodi aliquam nulla dolore delectus? Eum iste eaque maxime quasi"
+  const sampleContent =
+    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam";
 
   const shadeAnimation = useSpring({
     from: {
@@ -129,8 +125,18 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   });
 
-  const ImgWrapperOpenAnimation = { width: "50%", height: "50%"  };
-  const ImgWrapperClosedAnimation = { width: "100%",  height: "100%"};
+  const ImgWrapperOpenAnimation = {
+    width: "50%",
+    minWidth: "200px",
+    border: "2px solid rgba(0,0,0, 0.6)",
+    maxHeight: "400px"
+  };
+  const ImgWrapperClosedAnimation = {
+    width: "100%",
+    minWidth: "0px",
+    border: "0px solid rgba(0,0,0, 0.6)",
+    maxHeight: "1000px"
+  };
 
   const ImgWrapperAnimation = useSpring({
     from: ImgWrapperClosedAnimation,
@@ -139,7 +145,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
 
   const ImgWrapper = styled(animated.div)`
     /* overflow: hidden; */
-  `
+  `;
 
   const innerContentAnimation = useSpring({
     from: { marginLeft: "0px" },
@@ -166,10 +172,9 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
       <ProjectTitle>{title}</ProjectTitle>
       <ImgWrapper style={ImgWrapperAnimation}>
         <ProjectImage
-          objectFit="cover"
-          objectPosition="right bottom"
-          alt=""
+          alt={`${title} screen`}
           fluid={data.placeholderImage.childImageSharp.fluid}
+          imgStyle={{objectFit: "contain"}}
         />
       </ImgWrapper>
       {/* {isExpanded && <Shade style={shadeAnimation} />} */}
@@ -194,7 +199,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
         )}
       </Content>
       <Border /> */}
-      {isExpanded && sampleContent }
+      {isExpanded && sampleContent}
     </ProjectBox>
   );
 };
