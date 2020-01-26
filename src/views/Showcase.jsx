@@ -23,6 +23,8 @@ const ProjectsContainer = styled.div`
   /* display: flex;
   flex-wrap: wrap;
    */
+  transform-style: preserve-3d;
+  position: "relative";
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-template-rows: 1fr 1fr;
@@ -74,6 +76,7 @@ const Showcase = ({ children, offset }) => {
             //     }}
             // >
             <ProjectCard
+              key={i}
               projectData={project}
               isExpanded={expandedCard === i + 1}
               setExpandedCard={setExpandedCard}

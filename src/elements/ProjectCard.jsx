@@ -65,6 +65,10 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     align-items: center;
     justify-content: center;
     background: white;
+    grid-column: ${i + 1 === 1 ? "1" : "2"} / span 1;
+    grid-row: ${i + 1 === 3 ? "2" : "1"} / span 1;
+    ${media.md` grid-row: ${i +
+      1} / span 1; grid-column: 1 / span 1; transform: translateX(15%);`}
   `;
   const ProjectImage = styled(Img)`
     ${tw`h-full w-full`};
@@ -74,32 +78,27 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     ${tw`m-0 p-3 w-full absolute z-10 border-radius-10 font-serif`} bottom: 0;
     background: ${colors["grey-light"]};
   `;
-
-  // const projectBoxAnimation = useSpring({
-  //   from: { backgroundSize: "15%", height: "20%", backgroundPositionY: "10px" },
-  //   to: isExpanded
-  //     ? { backgroundSize: "100%", height: "50%", backgroundPositionY: "10px" }
-  //     : { backgroundSize: "15%", height: "20%", backgroundPositionY: "35%" },
-  //   config: config.molasses
-  // });
-
   const projectBoxNotSelectedProps = {
-    zIndex: -1,
-    position: "relative",
-    left: "0%",
+    zIndex: "-1",
+    position: "fixed",
     height: "10vh",
     width: "30vw",
-    transform: "rotate(0deg) translateX(0%) rotateY(0deg)",
+    left: "0%",
+    top: "0%",
+    transform:
+      "rotate(0deg) rotateX(0deg) translateZ(0px) translateX(0%) translateY(0%)",
     boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)"
     // minWidth: "500px"
   };
   const projectBoxSelectedProps = {
-    zIndex: 0,
+    zIndex: "2",
+    position: "relative",
+    top: "30%",
     left: "50%",
-    position: "absolute",
-    height: "100vh",
-    width: "110vw",
-    transform: "rotate(-15deg) translateX(-50%) rotateY(50deg)",
+    height: "80%",
+    width: "70%",
+    transform:
+      "rotate(-15deg) rotateX(-50deg) translateZ(500px) translateX(-50%) translateY(-50%)",
     boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)"
     // minWidth: "0px"
   };
@@ -112,18 +111,6 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
 
   const sampleContent =
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam";
-
-  const shadeAnimation = useSpring({
-    from: {
-      height: "0%"
-    },
-    to: {
-      height: "100%"
-    },
-    config: {
-      duration: 1200
-    }
-  });
 
   const ImgWrapperOpenAnimation = {
     width: "50%",
@@ -147,58 +134,41 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     /* overflow: hidden; */
   `;
 
-  const innerContentAnimation = useSpring({
-    from: { marginLeft: "0px" },
-    to: { marginLeft: "400px" },
-    config: {
-      delay: 400
-    }
-  });
-
-  const innerTransition = useTransition(isExpanded, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: { duration: 2000 }
-  });
+  const CloseCardButton = styled.span`
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+  `;
 
   return (
     <ProjectBox
       style={projectBoxAnimation}
-      onClick={() => {
-        setExpandedCard(i + 1);
-      }}
+      onClick={
+        isExpanded
+          ? null
+          : () => {
+              setExpandedCard(i + 1);
+            }
+      }
     >
       <ProjectTitle>{title}</ProjectTitle>
       <ImgWrapper style={ImgWrapperAnimation}>
         <ProjectImage
           alt={`${title} screen`}
           fluid={data.placeholderImage.childImageSharp.fluid}
-          imgStyle={{objectFit: "contain"}}
+          imgStyle={{ objectFit: "contain" }}
         />
       </ImgWrapper>
-      {/* {isExpanded && <Shade style={shadeAnimation} />} */}
-      {/* {innerTransition.map(
-        ({ item, key, props }) => item && <Shade key={key} style={props} />
-      )} */}
-      {/* <Border />
-      <Content>
-        <h1>{title}</h1>
-        {isExpanded && (
-          <animated.div style={innerContentAnimation}>
-            <p>{description}</p>
-          </animated.div>
-        )}
-        {innerTransition.map(
-          ({ item, key, props }) =>
-            item && (
-              <animated.div key={key} style={props}>
-                <p>{description}</p>
-              </animated.div>
-            )
-        )}
-      </Content>
-      <Border /> */}
+      {isExpanded && (
+        <CloseCardButton
+          onClick={() => {
+            setExpandedCard(0);
+          }}
+        >
+          CLOSE
+        </CloseCardButton>
+      )}
       {isExpanded && sampleContent}
     </ProjectBox>
   );
