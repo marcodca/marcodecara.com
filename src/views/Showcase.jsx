@@ -11,8 +11,8 @@ import styled from "styled-components/macro";
 import { animated, useSpring } from "react-spring";
 import tw from "tailwind.macro";
 import ProjectCard from "../elements/ProjectCard";
-import projectsData from "../data/projects.json";
 import { media } from "../styles/utils";
+import { useStaticQuery, graphql } from "gatsby";
 
 const ProjectsContainer = styled.div`
   width: 90%;
@@ -43,6 +43,19 @@ const ProjectBox = styled(animated.div)`
 `;
 
 const Showcase = ({ children, offset }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allProjectsJson {
+        edges {
+          node {
+            title
+            image
+            description
+          }
+        }
+      }
+    }
+  `);
   const [expandedCard, setExpandedCard] = useState(0);
 
   //   const mainProps = useSpring({
@@ -69,7 +82,7 @@ const Showcase = ({ children, offset }) => {
         // css={`z-index: 80;`}
       >
         <ProjectsContainer>
-          {projectsData.map((project, i) => (
+          {data.allProjectsJson.edges.map((project, i) => (
             // <div
             //     onClick={()=>{
             //         setExpandedCard(i + 1);

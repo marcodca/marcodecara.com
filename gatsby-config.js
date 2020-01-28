@@ -1,33 +1,41 @@
-const config = require('./config/website')
+const config = require("./config/website");
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
 module.exports = {
   /* General Information */
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: config.siteUrl + pathPrefix
   },
   /* Plugins */
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-styled-components",
+    `gatsby-transformer-json`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/images/`,
-        name: 'images',
-      },
+        name: "images",
+      }
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: "gatsby-source-filesystem",
       options: {
-        trackingId: config.googleAnalyticsID,
-      },
+        path: `${__dirname}/src/data/`,
+        name: "projects"
+      }
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: config.googleAnalyticsID
+      }
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
@@ -35,23 +43,23 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: 'standalone',
+        display: "standalone",
         icons: [
           {
-            src: '/favicons/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
+            src: "/favicons/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png"
           },
           {
-            src: '/favicons/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
+            src: "/favicons/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png"
+          }
+        ]
+      }
     },
     /* Must be placed at the end */
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
-  ],
-}
+    "gatsby-plugin-offline",
+    "gatsby-plugin-netlify"
+  ]
+};

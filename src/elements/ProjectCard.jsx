@@ -17,8 +17,8 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
         edges {
           node {
             fluid(maxWidth: 800) {
-            originalName
-            ...GatsbyImageSharpFluid
+              originalName
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -26,7 +26,17 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   `);
 
-  const { title, description } = projectData;
+  const { title, description, image } = projectData.node;
+
+  // console.log(title, description, image );
+
+  // console.log(data);
+
+  // console.log("image", image)
+
+  console.log(data.placeholderImage.edges.filter(
+    img => img.node.fluid.originalName === image
+  )[0])
 
   const ProjectBox = styled(animated.div)`
     ${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg`}
@@ -53,7 +63,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     align-items: center;
     justify-content: center;
     margin-top: 7.5%;
-    ${media.sm`margin-top: ${props => props.isExpanded && `10%`}`};
+    ${media.sm`margin-top: ${props => props.isExpanded && `10%`};`}
   `;
 
   const ProjectImage = styled(Img)`
@@ -103,8 +113,6 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
   const sampleContent =
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam";
 
-
-
   const ActionButtons = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -126,17 +134,17 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   `;
 
-const ImgWrapperOpenAnimation = {
-  width: "50%",
-  minWidth: "200px",
-  maxHeight: "400px",
-  top: "unset"
-};
-const ImgWrapperClosedAnimation = {
-  width: "100%",
-  minWidth: "0px",
-  maxHeight: "1000px",
-};
+  const ImgWrapperOpenAnimation = {
+    width: "50%",
+    minWidth: "200px",
+    maxHeight: "400px",
+    top: "unset"
+  };
+  const ImgWrapperClosedAnimation = {
+    width: "100%",
+    minWidth: "0px",
+    maxHeight: "1000px"
+  };
 
   const ImgWrapperAnimation = useSpring({
     from: ImgWrapperClosedAnimation,
@@ -159,7 +167,7 @@ const ImgWrapperClosedAnimation = {
     }
   `;
 
-  console.log(data);
+ 
 
   return (
     <ProjectBox
@@ -176,7 +184,9 @@ const ImgWrapperClosedAnimation = {
         <ImgWrapper style={ImgWrapperAnimation}>
           <ProjectImage
             alt={`${title} screen`}
-            fluid={data.placeholderImage.edges[3].node.fluid}
+            fluid={data.placeholderImage.edges.filter(
+              img => img.node.fluid.originalName === image
+            )[0].node.fluid}
             imgStyle={{ objectFit: "contain" }}
           />
         </ImgWrapper>

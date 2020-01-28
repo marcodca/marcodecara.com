@@ -1,14 +1,17 @@
 [
   {
     "title": "Reffen stock",
+    "image": "reffen-stock.png",
     "description": "A simple full-stack web app for keeping track of missing products in the inventory. Build with Node, React, GraphQL, Styled-components and MaterialUI"
   },
   {
-    "title": "Reffen stock",
-    "description": "A simple full-stack web app for keeping track of missing products in the inventory. Build with Node, React, GraphQL, Styled-components and MaterialUI"
+    "title": "Christiania Rules",
+    "image": "christiania-rules.png",
+    "description": "A visual thing man, you know."
   },
   {
-    "title": "Reffen stock",
-    "description": "A simple full-stack web app for keeping track of missing products in the inventory. Build with Node, React, GraphQL, Styled-components and MaterialUI"
+    "title": "Do it better",
+    "image": "do-it-better.png",
+    "description": "A simple thing with subscriptions"
   }
 ]
