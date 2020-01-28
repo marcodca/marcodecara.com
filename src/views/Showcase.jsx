@@ -15,6 +15,9 @@ import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 import { media } from "../styles/utils";
 
+
+//TO DO: The ProjectCard components behaves funny on small screens and the media queries mess up the animations,  so it would be nice two have two of them, and only render one according to the screen size (yeah DOM, sorry about that) 
+
 const Showcase = ({ children, offset }) => {
 
   //The projects data, coming from the projects.json file, in src/data. 
