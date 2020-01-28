@@ -1,48 +1,23 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components/macro";
+
+//Elements
 import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import Inner from "../elements/Inner";
+import ProjectCard from "../elements/ProjectCard";
+//Components
+import { Blob, ResponsiveBlob } from "../components/Blobs";
+//Styling
 import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
-import { Blob, ResponsiveBlob } from "../components/Blobs";
-//Mocking from here
-import styled from "styled-components/macro";
-import { animated, useSpring } from "react-spring";
-import tw from "tailwind.macro";
-import ProjectCard from "../elements/ProjectCard";
 import { media } from "../styles/utils";
-import { useStaticQuery, graphql } from "gatsby";
-
-const ProjectsContainer = styled.div`
-  width: 90%;
-  height: 60%;
-  border: 3px solid red;
-  margin: 0 auto;
-  margin-top: 40vh;
-  /* display: flex;
-  flex-wrap: wrap;
-   */
-  transform-style: preserve-3d;
-  position: "relative";
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 1fr 1fr;
-  transform: rotateX(50deg) rotate(15deg);
-  /* ${media.md`flex-direction: column;`} */
-  ${media.md`grid-template-columns: 1fr;
-   grid-template-rows: 1fr 1fr 1fr;`}
-`;
-
-const ProjectBox = styled(animated.div)`
-  min-width: 200px;
-  min-height: 100px;
-  margin: 10px;
-  border-radius: 5px;
-  background: lightcoral;
-`;
 
 const Showcase = ({ children, offset }) => {
+
+  //The projects data, coming from the projects.json file, in src/data. 
   const data = useStaticQuery(graphql`
     query {
       allProjectsJson {
@@ -56,20 +31,9 @@ const Showcase = ({ children, offset }) => {
       }
     }
   `);
+
+  //An state for keeping track of the selected card. 0 is for none card selected
   const [expandedCard, setExpandedCard] = useState(0);
-
-  //   const mainProps = useSpring({
-  //     height: selected === 1 ? "50%" : "33%",
-  //     from: { height: "20%" },
-  //     config: { duration: 1200 }
-  //   });
-
-  //   const setProps = nr =>
-  //     useSpring({
-  //       height: selected === nr ? "50%" : "33%",
-  //       from: { height: "20%" },
-  //       config: { duration: 1200 }
-  //     });
 
   return (
     <>
@@ -79,15 +43,9 @@ const Showcase = ({ children, offset }) => {
         speed={0.2}
         offset={offset}
         factor={2}
-        // css={`z-index: 80;`}
       >
         <ProjectsContainer>
           {data.allProjectsJson.edges.map((project, i) => (
-            // <div
-            //     onClick={()=>{
-            //         setExpandedCard(i + 1);
-            //     }}
-            // >
             <ProjectCard
               key={i}
               projectData={project}
@@ -95,19 +53,18 @@ const Showcase = ({ children, offset }) => {
               setExpandedCard={setExpandedCard}
               i={i}
             />
-            // </div>
           ))}
         </ProjectsContainer>
-        {/* <ResponsiveBlob
+        <ResponsiveBlob
         size={7}
         left="75%"
-        top="15%"
+        top="8%"
         opacity="0.6"
         border="3px solid black"
         hiddenMobile
-      /> */}
+      />
       </Divider>
-      {/* <Divider
+      <Divider
         speed={0.1}
         offset={offset}
         factor={2}
@@ -143,7 +100,7 @@ const Showcase = ({ children, offset }) => {
           opacity="0.7"
           color={colors["grey-dark"]}
         />
-      </Divider> */}
+      </Divider>
       <Content
         speed={0.4}
         offset={offset}
@@ -162,6 +119,23 @@ const Showcase = ({ children, offset }) => {
     </>
   );
 };
+
+//Styled components
+const ProjectsContainer = styled.div`
+  width: 90%;
+  height: 60%;
+  margin: 0 auto;
+  margin-top: 40vh;
+  transform-style: preserve-3d;
+  position: "relative";
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+  transform: rotateX(50deg) rotate(15deg);
+  ${media.md`grid-template-columns: 1fr;
+   grid-template-rows: 1fr 1fr 1fr;`}
+`;
+
 
 export default Showcase;
 

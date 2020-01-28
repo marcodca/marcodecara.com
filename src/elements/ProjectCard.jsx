@@ -2,21 +2,25 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { animated, useSpring, useTransition, config } from "react-spring";
+import { animated, useSpring } from "react-spring";
+//Styling
 import { media } from "../styles/utils";
 import { colors } from "../../tailwind";
 import tw from "tailwind.macro";
+//Icons
 import crossIcon from "../images/icons/cross-icon.svg";
 import siteIcon from "../images/icons/site-icon.svg";
 import githubIcon from "../images/icons/github-icon.svg";
 
 const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
+
+  //The data for all the images
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: allImageSharp {
         edges {
           node {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 600) {
               originalName
               ...GatsbyImageSharpFluid
             }
@@ -25,18 +29,6 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
       }
     }
   `);
-
-  const { title, description, image } = projectData.node;
-
-  // console.log(title, description, image );
-
-  // console.log(data);
-
-  // console.log("image", image)
-
-  console.log(data.placeholderImage.edges.filter(
-    img => img.node.fluid.originalName === image
-  )[0])
 
   const ProjectBox = styled(animated.div)`
     ${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg`}
@@ -89,7 +81,6 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     transform:
       "rotate(0deg) rotateX(0deg) translateZ(0px) translateX(0%) translateY(0%)",
     boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)"
-    // minWidth: "500px"
   };
   const projectBoxSelectedProps = {
     zIndex: "2",
@@ -101,17 +92,12 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     transform:
       "rotate(-15deg) rotateX(-50deg) translateZ(500px) translateX(-50%) translateY(-50%)",
     boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)"
-    // minWidth: "0px"
   };
 
   const projectBoxAnimation = useSpring({
     from: projectBoxNotSelectedProps,
     to: isExpanded ? projectBoxSelectedProps : projectBoxNotSelectedProps
-    // config: config.slow
   });
-
-  const sampleContent =
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad corporis deleniti facere quisquam quae adipisci perferendis reiciendis nulla voluptates. Officia quae pariatur voluptate quod vero, quis amet tempore rerum enim suscipit voluptates ipsa minus vel quia ratione sunt corporis. Atque, necessitatibus soluta! Mollitia earum voluptatibus amet quam";
 
   const ActionButtons = styled.div`
     display: flex;
@@ -167,7 +153,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   `;
 
- 
+const { title, description, image } = projectData.node;
 
   return (
     <ProjectBox
@@ -215,7 +201,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
       )}
       <BottomContent isExpanded={isExpanded}>
         <h3>{title}</h3>
-        {isExpanded && sampleContent}
+        {isExpanded && description}
       </BottomContent>
     </ProjectBox>
   );
