@@ -61,9 +61,19 @@ const Footer = () => {
         Credits
       </a>
 
-      <Modal open={open} onClose={() => setOpen(false)} center>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        center
+        styles={{
+          modal: { "border-radius": "5px" },
+          closeButton: { cursor: "pointer" }
+        }}
+      >
         <p
-          css={`${tw`font-sans pt-4 -mb-4 text-lg font-semibold`}`}
+          css={`
+            ${tw`font-sans pt-4 -mb-4 text-lg font-semibold`}
+          `}
         >
           Project made in <a href="https://www.reactjs.org/">React</a> and
           <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>
