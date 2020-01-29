@@ -29,6 +29,9 @@ const Showcase = ({ children, offset }) => {
             title
             image
             description
+            techs
+            source
+            site
           }
         }
       }

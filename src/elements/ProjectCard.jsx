@@ -37,13 +37,12 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     to: isExpanded ? projectBoxSelectedProps : projectBoxNotSelectedProps
   });
 
-
   const ImgWrapperAnimation = useSpring({
     from: ImgWrapperClosedAnimation,
     to: isExpanded ? ImgWrapperOpenAnimation : ImgWrapperClosedAnimation
   });
 
-  const { title, description, image } = projectData.node;
+  const { title, description, image, techs, source, site } = projectData.node;
 
   return (
     <ProjectBox
@@ -59,25 +58,28 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     >
       <TopContainer isExpanded={isExpanded}>
         <ImgWrapper style={ImgWrapperAnimation}>
-          <ProjectImage
-            alt={`${title} screen`}
-            fluid={
-              data.placeholderImage.edges.filter(
-                img => img.node.fluid.originalName === image
-              )[0].node.fluid
-            }
-            imgStyle={{ objectFit: "contain" }}
-          />
+
+            <ProjectImage
+              alt={`${title} screen`}
+              fluid={
+                data.placeholderImage.edges.filter(
+                  img => img.node.fluid.originalName === image
+                )[0].node.fluid
+              }
+              imgStyle={{ objectFit: "contain" }}
+            />
         </ImgWrapper>
         {isExpanded && (
           <ActionButtons>
-            <div>
+            <a href={site} target="blank">
               <img src={siteIcon} />
               Visit site
-            </div>
+            </a>
             <div>
-              <img src={githubIcon} className="github" />
-              View source
+              <a href={source} target="blank">
+                <img src={githubIcon} className="github" />
+                View source
+              </a>
             </div>
           </ActionButtons>
         )}
@@ -94,7 +96,11 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
       )}
       <BottomContent isExpanded={isExpanded}>
         <h3>{title}</h3>
-        {isExpanded && description}
+        {isExpanded && (
+          <div>
+            <p>{description}</p> <br /> <b>Build with:</b> {techs}
+          </div>
+        )}
       </BottomContent>
     </ProjectBox>
   );
@@ -137,13 +143,15 @@ const ActionButtons = styled.div`
   display: flex;
   justify-content: space-evenly;
   font-family: Questrial;
-  font-size: 1em;
+  font-size: 1.2em;
   width: 75%;
   min-width: 280px;
-  div {
+  a {
     display: flex;
     align-items: center;
     padding: 5px;
+    font-weight: bold;
+    color: ${colors.black};
   }
   img {
     width: 1rem;
@@ -155,10 +163,14 @@ const ActionButtons = styled.div`
 `;
 
 const BottomContent = styled.div`
-  ${tw`m-0 w-full absolute z-10 border-radius-10 font-serif`} bottom: 0;
+  ${tw`m-0 w-full p-1 absolute z-10 border-radius-10 font-serif`} bottom: 0;
   background: ${colors["grey-light"]};
   padding: ${props => props.isExpanded && `1vh`};
   font-size: ${props => !props.isExpanded && `24px`};
+  p {
+    font-size: 1.1em;
+    margin: 0;
+  }
   ${media.sm`font-size: ${props => props.isExpanded && `15px`};`}
 `;
 
@@ -203,7 +215,6 @@ const projectBoxSelectedProps = {
   boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)"
 };
 
-
 const ImgWrapperOpenAnimation = {
   width: "50%",
   minWidth: "200px",
@@ -224,6 +235,5 @@ ProjectCard.propTypes = {
   setExpandedCard: PropTypes.func.isRequired,
   i: PropTypes.number.isRequired
 };
-
 
 export default ProjectCard;
