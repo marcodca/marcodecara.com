@@ -10,6 +10,8 @@ import WebTechs from "../components/WebTechs";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 
+
+//When (if) the new showcase is implemented, this one might go somewhat lower on sm screens.
 const WebTechsWrapper = styled.div`
   ${tw`absolute w-5/6 flex items-center justify-center h-auto`};
   top: 60%;
@@ -22,11 +24,11 @@ const Skills = ({ children, offset }) => (
         colors["grey-dark"]
       } 100%)`}
       speed={-0.2}
-      offset={`${offset}.1`}
+      offset={`${offset}`}
       factor={2}
 
     />
-    <Content speed={0.4} offset={`${offset}.2`} factor={2}>
+    <Content speed={0} offset={`${offset}.5`} factor={1}>
       <Inner>{children}</Inner>
       <WebTechsWrapper>
         <WebTechs />
