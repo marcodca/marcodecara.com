@@ -95,7 +95,7 @@ const Index = () => (
         </MeHero>
       </Me>
       <Showcase offset={4}>
-        <Title>Some stuff I built</Title>
+        <Title>Some stuff I've built</Title>
       </Showcase>
       <Contact offset={5.73}>
         <Inner>
