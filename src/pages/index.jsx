@@ -18,7 +18,7 @@ import Skills from "../views/Skills";
 import Me from "../views/Me";
 import Showcase from "../views/Showcase";
 import Contact from "../views/Contact";
-import Footer from '../views/Footer';
+import Footer from "../views/Footer";
 
 //Assets
 import avatar from "../images/avatar.png";
@@ -51,11 +51,10 @@ const ContactText = styled.p`
   line-height: 1.2;
 `;
 
-
 const Index = () => (
   <>
     <Layout />
-    <Parallax pages={7}>
+    <Parallax pages={6.6}>
       <Hero offset={0}>
         <ScaleUp delay={100}>
           <BigTitle>
@@ -87,8 +86,8 @@ const Index = () => (
         <MeHero>
           <Avatar src={avatar} alt="Marco de Cara's photo" />
           <MeText>
-            I'm a Barcelona based full-stack(ish) web developer, with a bent
-            for front-end and design. Former{" "}
+            I'm a Barcelona based full-stack(ish) web developer, with a bent for
+            front-end and design. Former{" "}
             <a href="https://www.hackyourfuture.net/"> Hack Your Future </a>
             student, I'm always trying to stay tuned with the new techs within
             the industry, and in constant pursuit of challenges.
@@ -98,7 +97,7 @@ const Index = () => (
       <Showcase offset={4}>
         <Title>Some stuff I built</Title>
       </Showcase>
-      <Contact offset={6}>
+      <Contact offset={5.73}>
         <Inner>
           <Title
             css={`
@@ -116,8 +115,8 @@ const Index = () => (
             & <a href="https://github.com/marcodca/">Github</a>.
           </ContactText>
         </Inner>
-        <Footer />
       </Contact>
+      <Footer />
     </Parallax>
   </>
 );

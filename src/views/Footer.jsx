@@ -8,6 +8,9 @@ import spot from "../images/spot.svg";
 
 const StyledFooter = styled.footer`
   ${tw`text-center w-full md:w-2/3 lg:w-1/3 flex justify-around items-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
+  z-index: 5555;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const Ul = styled.ul`
@@ -43,7 +46,7 @@ const Footer = () => {
             width="30px"
             src={logo}
             css={`
-              ${tw`ml-1 md:ml-3`} filter : invert(100%)
+              ${tw`ml-1 md:ml-3`} filter : invert(100%);
             `}
           />
         </a>
