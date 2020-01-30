@@ -18,6 +18,7 @@
     "gatsby-source-filesystem": "^2.1.36",
     "gatsby-transformer-json": "^2.2.25",
     "gatsby-transformer-sharp": "^2.3.3",
+    "parallax-js": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-blob": "1.0.1",
