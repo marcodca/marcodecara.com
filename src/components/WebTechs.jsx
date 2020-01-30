@@ -3,10 +3,9 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 import Parallax from 'parallax-js'
 //icons
-import reactIcon from "../images/icons/react-icon.svg"
-import gatbsyIcon from "../images/icons/gatsby-icon.svg"
-import styledComponentsIcon from "../images/icons/styled-components-icon.svg"
-import graphQlIcon from "../images/icons/graphql-icon.svg"
+import {react} from "../images/icons"
+import {styledComponents} from "../images/icons"
+import {graphql} from "../images/icons"
 
 const Scene = styled.div`
   ${tw`w-1/3 flex align-center justify-center h-1/3`}
@@ -46,12 +45,12 @@ const WebTechs = () => {
       <Icon
         size={16}
         data-depth="0.60"
-        icon={reactIcon}
+        icon={react}
       />
       <Icon
         size={24}
         data-depth="0.80"
-        icon={graphQlIcon}
+        icon={graphql}
       />
 
     </Scene>

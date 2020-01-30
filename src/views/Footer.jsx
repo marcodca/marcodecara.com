@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import githubIcon from "../images/icons/github-icon.svg";
+import { github } from "../images/icons";
 import logo from "../images/logo.png";
 import Modal from "react-responsive-modal";
 import spot from "../images/spot.svg";
@@ -37,7 +37,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <a href="https://github.com/marcodca/marcodecara.com">
-        <img width="30px" src={githubIcon} />
+        <img width="30px" src={github} />
       </a>
       <span css={tw`flex items-center space-between`}>
         Made by
