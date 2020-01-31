@@ -9,9 +9,9 @@ import { media } from "../styles/utils";
 import { colors } from "../../tailwind";
 import tw from "tailwind.macro";
 //Icons
-import {cross} from "../images/icons";
-import {site as siteIcon}  from "../images/icons";
-import { github as githubIcon} from "../images/icons";
+import crossIcon from "../images/icons/cross-icon.svg";
+import siteIcon from "../images/icons/site-icon.svg";
+import githubIcon from "../images/icons/github-icon.svg";
 
 const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
   //The data for all the images
@@ -91,7 +91,7 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
             setExpandedCard(0);
           }}
         >
-          <img src={cross} width={26} />
+          <img src={crossIcon} width={26} />
         </CloseCardButton>
       )}
       <BottomContent isExpanded={isExpanded}>

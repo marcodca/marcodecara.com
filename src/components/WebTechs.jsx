@@ -1,61 +1,71 @@
-import React, { useRef, useEffect } from "react";
-import styled from "styled-components/macro";
-import tw from "tailwind.macro";
-import Parallax from "parallax-js";
-import { media } from "../styles/utils";
+import React from "react"
+import styled from "styled-components"
+import { useSpring, animated } from "react-spring"
+import tw from "tailwind.macro"
 //icons
-import {
-  jsBack,
-  jsFront,
-  reactBack,
-  reactFront,
-  htmlFront,
-  htmlBack,
-  cssFront,
-  cssBack
-} from "../images/icons";
+import reactIcon from "../images/icons/react-icon.svg"
+import gatbsyIcon from "../images/icons/gatsby-icon.svg"
+import styledComponentsIcon from "../images/icons/styled-components-icon.svg"
+import graphQlIcon from "../images/icons/graphql-icon.svg"
 
-const Scene = styled.div`
-  ${tw`w-1/3 h-1/3 relative`}
+
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 70}px,0)`;
+const trans3 = (x, y) => `translate3d(${x / 6 - 120}px,${y + 200}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 3.5 + 130}px,${y / 3.5 + 210}px,0)`;
+
+const Container = styled.div`
+  ${tw`w-1/3 flex align-center justify-center h-1/3`}
 `;
 
-const Icon = styled.div`
+const Icon = styled(animated.div)`
   position: absolute;
+  border-radius: 5px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
+  min-width: ${props => props.size * 9}px;
+  min-height: ${props => props.size * 9}px;
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
-  top: ${props => props.top}vw !important;
-  left: ${props => props.left}vw !important;
+  max-width: ${props => props.size * 1.5 }vw;
+  max-height: ${props => props.size* 1.5 }vw;
   background-image: ${props => `url(${props.icon})`};
-  ${media.md`  width: ${props => props.size * 1.33}vw;
-  height: ${ props => props.size * 1.33}vw;
-  top: ${props => props.top * 1.33}vw !important;
-  left: ${props => props.left* 1.33}vw !important;
-  `}
 `;
 
 const WebTechs = () => {
-  const sceneRef = useRef();
-
-  useEffect(() => {
-    //eslint-disable-next-line
-    const parallax = new Parallax(sceneRef.current);
-  }, []);
+  const [props, set] = useSpring(() => ({
+    xy: [0, 0],
+    config: { mass: 10, tension: 550, friction: 140 }
+  }));
 
   return (
-    <Scene ref={sceneRef}>
-      <Icon size={16} data-depth="0.1" icon={jsBack} />
-      <Icon size={16} data-depth="0.2" icon={jsFront} />
-      <Icon size={14} data-depth="0.5" icon={htmlBack} left={-14} top={0} />
-      <Icon size={14} data-depth="0.3" icon={htmlFront} left={-14} top={0} />
-      <Icon size={15} data-depth="-0.2" icon={cssBack} left={19} top={0} />
-      <Icon size={15} data-depth="-0.4" icon={cssFront} left={19} top={0} />
-      <Icon size={13} data-depth="1.6" icon={reactBack} top={-13} left={2} />
-      <Icon size={13} data-depth="1.2" icon={reactFront} top={-13} left={2} />
-    </Scene>
+    <Container
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
+      <Icon
+        size={35}
+        icon={reactIcon} 
+        style={{ transform: props.xy.interpolate(trans1) }}
+        />
+      <Icon
+        size={13}
+        icon={gatbsyIcon} 
+        style={{ transform: props.xy.interpolate(trans2) }}
+        />
+      <Icon
+        size={11}
+        icon={styledComponentsIcon} 
+        style={{ transform: props.xy.interpolate(trans3) }}
+      />
+      <Icon
+        size={11}
+        icon={graphQlIcon} 
+        style={{ transform: props.xy.interpolate(trans4) }}
+      />
+    </Container>
   );
 };
 
