@@ -25,8 +25,6 @@ const Icon = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  /* min-width: ${props => props.size * 9}px;
-  min-height: ${props => props.size * 9}px; */
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
   top: ${props => props.top}vw !important;
