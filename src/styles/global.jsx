@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
     overflow-x: hidden;
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;

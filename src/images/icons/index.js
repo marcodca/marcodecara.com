@@ -1,10 +1,14 @@
 import cross from './cross.svg'
 import github from './github.svg'
-import graphql from './graphql.svg'
-import jsLogoBg from './js-logo-bg.svg'
-import jsLogoFront from './js-logo-front.svg'
-import react from './react.svg'
+import jsBack from './js-back.svg'
+import jsFront from './js-front.svg'
 import site from './site.svg'
-import styledComponents from './styled-components.svg'
+import reactFront from './react-front.svg'
+import reactBack from './react-back.svg'
+import htmlFront from './html-front.svg'
+import htmlBack from './html-back.svg'
+import cssFront from './css-front.svg'
+import cssBack from './css-back.svg'
 
-export {cross, github, graphql, jsLogoBg, jsLogoFront, react, site, styledComponents};
+
+export {cross, github, jsBack, jsFront, site, reactFront, reactBack, htmlFront, htmlBack, cssFront, cssBack};

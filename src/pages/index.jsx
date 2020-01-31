@@ -75,10 +75,11 @@ const Index = () => (
           `}
         >
           Besides blobs, there are also some neat web technologies I like to
-          play around with, like <a href="https://reactjs.org/"> React</a>,{" "}
+          play around with, specially HTML, CSS and JavaScript. <a href="https://reactjs.org/"> React</a> is my library of choice, and I like to use it together with <a href="https://redux.js.org/"> Redux</a>, <a href="https://www.styled-components.com/"> styled-components</a> and <a href="https://graphql.org/"> GraphQL</a>, among others. 
+          {/* like <a href="https://reactjs.org/"> React</a>,{" "}
           <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>,{" "}
           <a href="https://www.styled-components.com/"> styled-components</a>{" "}
-          and <a href="https://graphql.org/"> GraphQL</a>, among others.
+          and <a href="https://graphql.org/"> GraphQL</a>, among others. */}
         </SkillsIntro>
       </Skills>
       <Me offset={3}>

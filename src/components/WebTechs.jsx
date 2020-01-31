@@ -1,19 +1,25 @@
-import React, {useRef, useEffect}  from "react"
-import styled from "styled-components"
-import tw from "tailwind.macro"
-import Parallax from 'parallax-js'
+import React, { useRef, useEffect } from "react";
+import styled from "styled-components/macro";
+import tw from "tailwind.macro";
+import Parallax from "parallax-js";
 //icons
-import {react} from "../images/icons"
-import {styledComponents} from "../images/icons"
-import {graphql} from "../images/icons"
+import {
+  jsBack,
+  jsFront,
+  reactBack,
+  reactFront,
+  htmlFront,
+  htmlBack,
+  cssFront,
+  cssBack
+} from "../images/icons";
 
 const Scene = styled.div`
-  ${tw`w-1/3 flex align-center justify-center h-1/3`}
+  ${tw`w-1/3 h-1/3 relative`}
 `;
 
 const Icon = styled.div`
   position: absolute;
-  border-radius: 5px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -22,37 +28,29 @@ const Icon = styled.div`
   min-height: ${props => props.size * 9}px;
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
-  max-width: ${props => props.size * 1.5 }vw;
-  max-height: ${props => props.size* 1.5 }vw;
+  top: ${props => props.top}vw !important;
+  left: ${props => props.left}vw !important;
   background-image: ${props => `url(${props.icon})`};
 `;
 
 const WebTechs = () => {
-
   const sceneRef = useRef();
 
-  useEffect(()=>{
-    console.log(sceneRef.current);
-
+  useEffect(() => {
     //eslint-disable-next-line
     const parallax = new Parallax(sceneRef.current);
-  },[])
+  }, []);
 
   return (
-    <Scene
-    ref={sceneRef}
-    >
-      <Icon
-        size={16}
-        data-depth="0.60"
-        icon={react}
-      />
-      <Icon
-        size={24}
-        data-depth="0.80"
-        icon={graphql}
-      />
-
+    <Scene ref={sceneRef}>
+      <Icon size={16} data-depth="0.1" icon={jsBack} />
+      <Icon size={16} data-depth="0.2" icon={jsFront} />
+      <Icon size={14} data-depth="0.5" icon={htmlBack} left={-14} top={0} />
+      <Icon size={14} data-depth="0.3" icon={htmlFront} left={-14} top={0} />
+      <Icon size={15} data-depth="-0.2" icon={cssBack} left={19} top={0} />
+      <Icon size={15} data-depth="-0.4" icon={cssFront} left={19} top={0} />
+      <Icon size={13} data-depth="1.6" icon={reactBack} top={-13} left={2} />
+      <Icon size={13} data-depth="1.2" icon={reactFront} top={-13} left={2} />
     </Scene>
   );
 };
