@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import styled from "styled-components/macro";
 import tw from "tailwind.macro";
 import Parallax from "parallax-js";
+import { media } from "../styles/utils";
 //icons
 import {
   jsBack,
@@ -24,13 +25,18 @@ const Icon = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  min-width: ${props => props.size * 9}px;
-  min-height: ${props => props.size * 9}px;
+  /* min-width: ${props => props.size * 9}px;
+  min-height: ${props => props.size * 9}px; */
   width: ${props => props.size}vw;
   height: ${props => props.size}vw;
   top: ${props => props.top}vw !important;
   left: ${props => props.left}vw !important;
   background-image: ${props => `url(${props.icon})`};
+  ${media.sm`  width: ${props => props.size * 1.33}vw;
+  height: ${ props => props.size * 1.33}vw;
+  top: ${props => props.top * 1.33}vw !important;
+  left: ${props => props.left* 1.33}vw !important;
+  `}
 `;
 
 const WebTechs = () => {

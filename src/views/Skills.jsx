@@ -9,12 +9,15 @@ import { Blob, ResponsiveBlob } from "../components/Blobs";
 import WebTechs from "../components/WebTechs";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
+import { media } from '../styles/utils';
 
 
 //When (if) the new showcase is implemented, this one might go somewhat lower on sm screens.
 const WebTechsWrapper = styled.div`
   ${tw`absolute w-5/6 flex items-center justify-center h-auto`};
   top: 60%;
+  ${media.md`top: 75%;`}
+  ${media.sm`top: 85%;`}
 `;
 
 const Skills = ({ children, offset }) => (
