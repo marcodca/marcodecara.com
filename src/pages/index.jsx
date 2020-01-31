@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
+import Avatar from '../components/Avatar'
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";
 import { media } from "../styles/utils";
@@ -21,7 +22,7 @@ import Contact from "../views/Contact";
 import Footer from "../views/Footer";
 
 //Assets
-import avatar from "../images/avatar.png";
+// import avatar from "../images/avatar.png";
 
 const BigTitleName = styled.span`
   font-size: 115%;
@@ -36,15 +37,12 @@ const MeHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-24`};
 `;
 
-const MeText = styled.span`
+const MeText = styled.div`
   ${tw`text-white leading-normal font-sans pt-8 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
-  ${media.sm`margin-bottom: 20vh;`}
+  width: 70%;
+  ${media.sm`margin-bottom: 30vh; width: 100%;`}
 `;
 
-const Avatar = styled.img`
-  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
-  filter: grayscale(80%);
-`;
 
 const ContactText = styled.p`
   ${tw`text-grey-darkest font-sans text-xl md:text-2xl lg:text-3xl`};
@@ -85,7 +83,8 @@ const Index = () => (
       <Me offset={3}>
         <Title>Me</Title>
         <MeHero>
-          <Avatar src={avatar} alt="Marco de Cara's photo" />
+          <Avatar />
+          {/* <Avatar src={avatar} alt="Marco de Cara's photo" /> */}
           <MeText>
             I'm a Barcelona based full-stack(ish) web developer, with a bent for
             front-end and design. Former{" "}

@@ -28,10 +28,10 @@ const Skills = ({ children, offset }) => (
       } 100%)`}
       speed={-0.2}
       offset={`${offset}`}
-      factor={2}
+      factor={2.1}
 
     />
-    <Content speed={0} offset={`${offset}.5`} factor={1}>
+    <Content speed={0} offset={`${offset}.7`} factor={1}>
       <Inner>{children}</Inner>
       <WebTechsWrapper>
         <WebTechs />
@@ -50,7 +50,7 @@ const Skills = ({ children, offset }) => (
         <Blob
           size="110px"
           left="80%"
-          top="10%"
+          top="-10%"
           opacity="0.6"
           border="3px solid black"
           color={colors["black"]}
