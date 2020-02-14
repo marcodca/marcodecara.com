@@ -47,6 +47,9 @@ const MeText = styled.div`
 const ContactText = styled.p`
   ${tw`text-grey-darkest font-sans text-xl md:text-2xl lg:text-3xl`};
   line-height: 1.2;
+  a {
+    color: #C66210;
+  }
 `;
 
 const Index = () => (
