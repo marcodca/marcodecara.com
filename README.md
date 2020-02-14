@@ -6,10 +6,25 @@ A personal web page/portfolio with parallax effects, animations and a ton of blo
 
 ## Getting Started
 
+### NOTE: In order to run this project you are gonna need to have NodeJS and GatsbyJs installed in your computer. 
+
 1. **Clone this repository**
 
+```sh
+git clone https://github.com/marcodca/marcodecara.com.git project-name
+```
 
-Installation:
 
-`npm install`
+2. **Installation**
+
+```sh
+npm install
+```
+
+3. **Start developing**
+
+```sh
+cd project-name
+gatsby develop
+```
 
