@@ -2,6 +2,8 @@
 
 A personal web page/portfolio with parallax effects, animations and a ton of blobs.
 
+[Link to the app.](https://www.marcodecara.com/)
+
 <p align="center">
 <img width="460" height="300" src="https://i.ibb.co/NLmg1kB/screen-shot.png">
 </p>
