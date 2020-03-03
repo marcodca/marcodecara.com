@@ -43,6 +43,7 @@ const Hero = ({ children, offset }) => (
       <UpDownWide>
         <Blob
           size="90px"
+          hiddenMobile
           left="65%"
           top="85%"
           opacity="0.6"

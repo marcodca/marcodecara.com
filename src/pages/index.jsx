@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import tw from "tailwind.macro";
-import Avatar from '../components/Avatar'
+import Avatar from "../components/Avatar";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";
 import { media } from "../styles/utils";
@@ -43,19 +43,21 @@ const MeText = styled.div`
   ${media.sm`margin-bottom: 30vh; width: 100%;`}
 `;
 
-
 const ContactText = styled.p`
   ${tw`text-grey-darkest font-sans text-xl md:text-2xl lg:text-3xl`};
   line-height: 1.2;
   a {
-    color: #C66210;
+    color: #c66210;
   }
 `;
 
 const Index = () => (
   <>
     <Layout />
-    <Parallax pages={6.6}>
+    <Parallax
+      pages={6.6}
+      css={`${media.sm`height: 120% !important;`}`}
+    >
       <Hero offset={0}>
         <ScaleUp delay={100}>
           <BigTitle>
@@ -76,7 +78,12 @@ const Index = () => (
           `}
         >
           Besides blobs, there are also some neat web technologies I like to
-          play around with, specially HTML, CSS and JavaScript. <a href="https://reactjs.org/"> React</a> is my library of choice, and I like to use it together with <a href="https://redux.js.org/"> Redux</a>, <a href="https://www.styled-components.com/"> styled-components</a> and <a href="https://graphql.org/"> GraphQL</a>, among others. 
+          play around with, specially HTML, CSS and JavaScript.{" "}
+          <a href="https://reactjs.org/"> React</a> is my library of choice, and
+          I like to use it together with{" "}
+          <a href="https://redux.js.org/"> Redux</a>,{" "}
+          <a href="https://www.styled-components.com/"> styled-components</a>{" "}
+          and <a href="https://graphql.org/"> GraphQL</a>, among others.
           {/* like <a href="https://reactjs.org/"> React</a>,{" "}
           <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>,{" "}
           <a href="https://www.styled-components.com/"> styled-components</a>{" "}
@@ -98,10 +105,28 @@ const Index = () => (
         </MeHero>
       </Me>
       <Showcase offset={4}>
-        <Title>Some stuff I've built</Title>
+        <Title
+          css={`
+            ${media.md`
+              transform: translateY(-4.3em);
+              width: 66%;
+            `}
+          `}
+        >
+          Some stuff I've built
+        </Title>
       </Showcase>
-      <Contact offset={5.73}>
-        <Inner>
+      <Contact
+        offset={5.73}
+        css={`
+          ${media.sm`margin-top: 20%;`}
+        `}
+      >
+        <Inner
+          css={`
+          
+          `}
+        >
           <Title
             css={`
               ${tw`text-black`}
@@ -112,10 +137,8 @@ const Index = () => (
           <ContactText>
             Say <a href="mailto:marcodecara@gmail.com">Hi</a>, or find me on
             other platforms:{" "}
-            <a href="https://www.linkedin.com/in/marcodecara/">
-              Linkedin
-            </a>{" "}
-            & <a href="https://github.com/marcodca/">Github</a>.
+            <a href="https://www.linkedin.com/in/marcodecara/">Linkedin</a> &{" "}
+            <a href="https://github.com/marcodca/">Github</a>.
           </ContactText>
         </Inner>
       </Contact>

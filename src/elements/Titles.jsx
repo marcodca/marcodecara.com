@@ -3,7 +3,7 @@ import tw from 'tailwind.macro'
 import { rotateAnimation } from '../styles/animations'
 import spot from '../images/spot.svg'
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   ${tw`text-4xl lg:text-4xl font-serif text-white mb-8 tracking-wide relative inline-block z-90`};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   &:before {

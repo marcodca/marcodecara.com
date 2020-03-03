@@ -66,7 +66,12 @@ const Footer = () => {
         onClose={() => setOpen(false)}
         center
         styles={{
-          modal: { "border-radius": "5px" },
+          modal: {
+            "border-radius": "5px",
+            background: "rgb(255 255 255/ 0.9)",
+            "box-shadow":
+              "0px 2px 1px 1px rgba(0, 0, 0, 0.7), 0px 5px 15px 8px rgba(0, 0, 0, 0.4)"
+          },
           closeButton: { cursor: "pointer" }
         }}
       >

@@ -6,12 +6,17 @@ import Inner from "../elements/Inner";
 import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 import { Blob, ResponsiveBlob } from "../components/Blobs";
+import styled from 'styled-components/macro';
+import { media } from '../styles/utils';
 
 const Me = ({ children, offset }) => (
   <>
     <Divider
       bg={colors['blue-grey']}
       clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
+      css={`${media.md`
+        clip-path: polygon(0 7%, 100% 4%, 100% 93%, 0 94%) !important;
+      `}`}
       speed={0.2}
       offset={offset}
     >

@@ -35,6 +35,11 @@ const Icon = styled.div`
   top: ${props => props.top * 1.33}vw !important;
   left: ${props => props.left* 1.33}vw !important;
   `}
+  ${media.sm`  width: ${props => props.size * 1.7}vw;
+  height: ${ props => props.size * 1.7}vw;
+  top: ${props => props.top * 1.7}vw !important;
+  left: ${props => props.left* 1.7}vw !important;
+  `}
 `;
 
 const WebTechs = () => {
