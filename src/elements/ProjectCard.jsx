@@ -17,7 +17,7 @@ const ProjectCard = ({ projectData, selectedProject }) => {
       placeholderImage: allImageSharp {
         edges {
           node {
-            fixed(width: 300) {
+            fixed(width: 280) {
               originalName
               ...GatsbyImageSharpFixed
             }
@@ -92,7 +92,7 @@ const ProjectBox = styled(animated.div)`
     }
   }
   position: absolute;
-  ${media.md`visibility: visible !important; transform: scale(1) !important; opacity: 1 !important; position: relative; `}
+  ${media.md`visibility: visible !important; transform: scale(1) !important; opacity: 1 !important; position: relative; margin: 1em auto;`}
 `;
 
 const ProjectImage = styled(Img)`

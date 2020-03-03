@@ -49,12 +49,11 @@ const Showcase = ({ children, offset }) => {
         clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
         speed={0.2}
         offset={offset}
-        factor={2}
+        factor={1.6}
+        css={`
+          ${media.md`clip-path: none; height: 1500px !important; clip-path: polygon(0 2%, 100% 4%, 100% 99%, 0 100%)`}
+        `}
       >
-        {
-          //container here
-        }
-
         <ProjectSelector
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
@@ -141,7 +140,7 @@ const ProjectsContainer = styled.div`
   margin: 0 auto;
   margin-top: 10%;
   position: relative;
-  ${media.md`width: 100%;`}
+  ${media.md`width: 98%; margin-top: 9em;`}
 `;
 
 export default Showcase;
