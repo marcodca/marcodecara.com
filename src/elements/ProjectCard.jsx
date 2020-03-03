@@ -6,23 +6,20 @@ import styled from "styled-components";
 import { animated, useSpring } from "react-spring";
 //Styling
 import { media } from "../styles/utils";
-import { colors } from "../../tailwind";
-import tw from "tailwind.macro";
-//Icons
-import {cross} from "../images/icons";
-import {site as siteIcon}  from "../images/icons";
-import { github as githubIcon} from "../images/icons";
 
-const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
+import { site as siteIcon } from "../images/icons";
+import { github as githubIcon } from "../images/icons";
+
+const ProjectCard = ({ projectData, selectedProject }) => {
   //The data for all the images
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: allImageSharp {
         edges {
           node {
-            fluid(maxWidth: 600) {
+            fixed(width: 300) {
               originalName
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -30,78 +27,43 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
     }
   `);
 
-  //Animation hooks
+  const { title, description, image, techs, source, site } = projectData;
 
-  const projectBoxAnimation = useSpring({
-    from: projectBoxNotSelectedProps,
-    to: isExpanded ? projectBoxSelectedProps : projectBoxNotSelectedProps
+  const animation = useSpring({
+    visibility: selectedProject === image ? "visible" : "hidden",
+    transform: selectedProject === image ? "scale(1)" : "scale(0)",
+    opacity: selectedProject === image ? "1" : "0",
+    from: { visibility: "hidden", transform: "scale(0)", opacity: "0" }
   });
-
-  const ImgWrapperAnimation = useSpring({
-    from: ImgWrapperClosedAnimation,
-    to: isExpanded ? ImgWrapperOpenAnimation : ImgWrapperClosedAnimation
-  });
-
-  const { title, description, image, techs, source, site } = projectData.node;
 
   return (
-    <ProjectBox
-      style={projectBoxAnimation}
-      i={i}
-      onClick={
-        isExpanded
-          ? null
-          : () => {
-              setExpandedCard(i + 1);
-            }
-      }
-    >
-      <TopContainer isExpanded={isExpanded}>
-        <ImgWrapper style={ImgWrapperAnimation}>
-
-            <ProjectImage
-              alt={`${title} screen`}
-              fluid={
-                data.placeholderImage.edges.filter(
-                  img => img.node.fluid.originalName === image
-                )[0].node.fluid
-              }
-              imgStyle={{ objectFit: "contain" }}
-            />
-        </ImgWrapper>
-        {isExpanded && (
-          <ActionButtons>
-            <a href={site} target="blank">
-              <img src={siteIcon} />
-              Visit site
-            </a>
-            <div>
-              <a href={source} target="blank">
-                <img src={githubIcon} className="github" />
-                View source
-              </a>
-            </div>
-          </ActionButtons>
-        )}
-      </TopContainer>
-
-      {isExpanded && (
-        <CloseCardButton
-          onClick={() => {
-            setExpandedCard(0);
-          }}
-        >
-          <img src={cross} width={26} />
-        </CloseCardButton>
-      )}
-      <BottomContent isExpanded={isExpanded}>
-        <h3>{title}</h3>
-        {isExpanded && (
-          <div>
-            <p>{description}</p> <br /> <b>Build with:</b> {techs}
-          </div>
-        )}
-      </BottomContent>
+    <ProjectBox style={animation}>
+      <h3>
+        {title}
+        <br />
+        <sub>{description}</sub>
+      </h3>
+      <p>
+        <b>Built with:</b> {techs}
+        <ProjectImage
+          alt={`${title} screen`}
+          fixed={
+            data.placeholderImage.edges.filter(
+              el => el.node.fixed.originalName === image
+            )[0].node.fixed
+          }
+        />
+      </p>
+      <div>
+        <a href={site} target="_blank">
+          <Icon src={siteIcon} />
+          Link
+        </a>
+        <a href={source} target="_blank">
+          <Icon src={githubIcon} style={{ filter: "invert(100%)" }} />
+          Source
+        </a>
+      </div>
     </ProjectBox>
   );
 };
@@ -109,131 +71,44 @@ const ProjectCard = ({ projectData, isExpanded, setExpandedCard, i }) => {
 //Styled components
 
 const ProjectBox = styled(animated.div)`
-${tw`w-4/5 md:w-3/5 lg:w-2/5 lg:h-64 m-auto  border-4 border-solid border-grey-darker rounded-lg`}
-background: linear-gradient( ${colors.white}, ${colors.grey});
-min-width: 280px;
-min-height: 300px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-grid-column: ${props => (props.i + 1 === 1 ? "1" : "2")} / span 1;
-grid-row: ${props => (props.i + 1 === 3 ? "2" : "1")} / span 1;
-${media.md` height: 50vh ; grid-row: ${props =>
-  props.i + 1} / span 1; grid-column: 1 / span 1; transform: translateX(15%);`}
-`;
-
-const TopContainer = styled.div`
+  font-family: questrial;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: ${props => props.isExpanded && `7.5%`};
-  ${media.sm`margin-top: ${props => props.isExpanded && `10%`};`}
+  margin: 0 auto;
+  background: rgb(255 255 255/ 0.8);
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.7),
+    0px 5px 15px 8px rgba(0, 0, 0, 0.4);
+  h3 {
+    font-family: trocchi;
+  }
+  > div {
+    display: flex;
+    justify-content: space-evenly;
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  position: absolute;
+  ${media.md`visibility: visible !important; transform: scale(1) !important; opacity: 1 !important; position: relative; `}
 `;
 
 const ProjectImage = styled(Img)`
-  ${tw`h-full w-full`};
+  margin: 1em auto;
   border-radius: 5px;
-  border: "10px solid rgba(0,0,0, 0.6)";
+  display: none !important;
+  ${media.md`display: block !important;`}
 `;
 
-const ActionButtons = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  font-family: Questrial;
-  font-size: 1.2em;
-  width: 75%;
-  min-width: 280px;
-  a {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    font-weight: bold;
-    color: ${colors.black};
-  }
-  img {
-    width: 1rem;
-    margin: 3px;
-  }
-  .github {
-    filter: invert(100%);
-  }
+const Icon = styled.img`
+  width: 20px;
 `;
-
-const BottomContent = styled.div`
-  ${tw`m-0 w-full p-1 absolute z-10 border-radius-10 font-serif`} bottom: 0;
-  background: ${colors["grey-light"]};
-  padding: ${props => props.isExpanded && `1vh`};
-  font-size: ${props => !props.isExpanded && `24px`};
-  p {
-    font-size: 1.1em;
-    margin: 0;
-  }
-  ${media.sm`font-size: ${props => props.isExpanded && `15px`};`}
-`;
-
-const ImgWrapper = styled(animated.div)``;
-
-const CloseCardButton = styled.span`
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 3%;
-  cursor: pointer;
-  min-width: 20px;
-  img {
-    width: 100%;
-  }
-`;
-
-//Animations props
-
-const projectBoxNotSelectedProps = {
-  zIndex: "-1",
-  position: "fixed",
-  height: "10vh",
-  width: "30vw",
-  left: "0%",
-  top: "0%",
-  cursor: "pointer",
-  transform:
-    "rotate(0deg) rotateX(0deg) translateZ(0px) translateX(0%) translateY(0%)",
-  boxShadow: "72px 69px 33px -19px rgba(0,0,0,0.63)"
-};
-const projectBoxSelectedProps = {
-  zIndex: "2",
-  position: "relative",
-  top: "30%",
-  left: "50%",
-  height: "80%",
-  width: "70%",
-  cursor: "unset",
-  transform:
-    "rotate(-15deg) rotateX(-50deg) translateZ(500px) translateX(-50%) translateY(-50%)",
-  boxShadow: "0px 0px 33px 40px rgba(0,0,0,0.3)"
-};
-
-const ImgWrapperOpenAnimation = {
-  width: "50%",
-  minWidth: "200px",
-  maxHeight: "400px",
-  top: "unset"
-};
-const ImgWrapperClosedAnimation = {
-  width: "100%",
-  minWidth: "0px",
-  maxHeight: "1000px"
-};
-
-//PropTypes
 
 ProjectCard.propTypes = {
   projectData: PropTypes.object.isRequired,
-  isExpanded: PropTypes.bool.isRequired,
-  setExpandedCard: PropTypes.func.isRequired,
-  i: PropTypes.number.isRequired
+  selectedProject: PropTypes.string.isRequired
 };
 
 export default ProjectCard;

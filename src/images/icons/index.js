@@ -1,4 +1,3 @@
-import cross from './cross.svg'
 import github from './github.svg'
 import jsBack from './js-back.svg'
 import jsFront from './js-front.svg'
@@ -11,4 +10,4 @@ import cssFront from './css-front.svg'
 import cssBack from './css-back.svg'
 
 
-export {cross, github, jsBack, jsFront, site, reactFront, reactBack, htmlFront, htmlBack, cssFront, cssBack};
+export {github, jsBack, jsFront, site, reactFront, reactBack, htmlFront, htmlBack, cssFront, cssBack};

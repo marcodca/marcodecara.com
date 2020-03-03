@@ -7,6 +7,7 @@ import styled from "styled-components/macro";
 import { Divider } from "../elements/Dividers";
 import Content from "../elements/Content";
 import Inner from "../elements/Inner";
+import ProjectSelector from "../elements/ProjectSelector";
 import ProjectCard from "../elements/ProjectCard";
 //Components
 import { Blob, ResponsiveBlob } from "../components/Blobs";
@@ -15,12 +16,10 @@ import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 import { media } from "../styles/utils";
 
-
-//TO DO: The ProjectCard components behaves funny on small screens and the media queries mess up the animations,  so it would be nice two have two of them, and only render one according to the screen size (yeah DOM, sorry about that) 
+//TO DO: The ProjectCard components behaves funny on small screens and the media queries mess up the animations,  so it would be nice two have two of them, and only render one according to the screen size (yeah DOM, sorry about that)
 
 const Showcase = ({ children, offset }) => {
-
-  //The projects data, coming from the projects.json file, in src/data. 
+  //The projects data, coming from the projects.json file, in src/data.
   const data = useStaticQuery(graphql`
     query {
       allProjectsJson {
@@ -38,8 +37,10 @@ const Showcase = ({ children, offset }) => {
     }
   `);
 
-  //An state for keeping track of the selected card. 0 is for none card selected
-  const [expandedCard, setExpandedCard] = useState(0);
+  //An state for keeping track of the selected card, we use the name of the image as a reference, for reasons of ease.
+  const [selectedProject, setSelectedProject] = useState(
+    "screen-do-it-better.png"
+  );
 
   return (
     <>
@@ -50,25 +51,32 @@ const Showcase = ({ children, offset }) => {
         offset={offset}
         factor={2}
       >
+        {
+          //container here
+        }
+
+        <ProjectSelector
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
+        />
         <ProjectsContainer>
           {data.allProjectsJson.edges.map((project, i) => (
             <ProjectCard
+              projectData={project.node}
               key={i}
-              projectData={project}
-              isExpanded={expandedCard === i + 1}
-              setExpandedCard={setExpandedCard}
-              i={i}
+              selectedProject={selectedProject}
             />
           ))}
         </ProjectsContainer>
+
         <ResponsiveBlob
-        size={7}
-        left="75%"
-        top="8%"
-        opacity="0.6"
-        border="3px solid black"
-        hiddenMobile
-      />
+          size={7}
+          left="75%"
+          top="8%"
+          opacity="0.6"
+          border="3px solid black"
+          hiddenMobile
+        />
       </Divider>
       <Divider
         speed={0.1}
@@ -127,21 +135,14 @@ const Showcase = ({ children, offset }) => {
 };
 
 //Styled components
-const ProjectsContainer = styled.div`
-  width: 90%;
-  height: 60%;
-  margin: 0 auto;
-  margin-top: 40vh;
-  transform-style: preserve-3d;
-  position: "relative";
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 1fr 1fr;
-  transform: rotateX(50deg) rotate(15deg);
-  ${media.md`grid-template-columns: 1fr;
-   grid-template-rows: 1fr 1fr 1fr;`}
-`;
 
+const ProjectsContainer = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10%;
+  position: relative;
+  ${media.md`width: 100%;`}
+`;
 
 export default Showcase;
 

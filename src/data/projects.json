@@ -1,7 +1,7 @@
 [
   {
     "title": "Reffen stock",
-    "image": "reffen-stock.png",
+    "image": "screen-reffen-stock.png",
     "description": "A full-stack web app for keeping track of missing products in an inventory. Fully responsive and with PWA functionality.",
     "techs": "Node, GraphQL, MongoDB, React, Styled-components and MaterialUI.",
     "source": "https://github.com/marcodca/reffen-stock",
@@ -9,7 +9,7 @@
   },
   {
     "title": "Christiania Rules",
-    "image": "christiania-rules.png",
+    "image": "screen-christiania-rules.png",
     "description": "A fun visual project involving gestures and animations (desktop only).",
     "techs": "React, Styled-components and React-Spring.",
     "source": "https://github.com/marcodca/christiana-rules",
@@ -17,7 +17,7 @@
   },
   {
     "title": "Do it better",
-    "image": "do-it-better.png",
+    "image": "screen-do-it-better.png",
     "description": "A basic full-stack app, for keeping track of users to-do's with real-time functionality",
     "techs": "React, GraphQL with Apollo (subscriptions), MongoDB, Styled-components and React-Spring.",
     "source": "https://github.com/marcodca/do-it-better",
