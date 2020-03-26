@@ -1,11 +1,11 @@
 [
   {
-    "title": "Reffen stock",
-    "image": "screen-reffen-stock.png",
-    "description": "A full-stack web app for keeping track of missing products in an inventory. Fully responsive and with PWA functionality.",
-    "techs": "Node, GraphQL, MongoDB, React, Styled-components and MaterialUI.",
-    "source": "https://github.com/marcodca/reffen-stock",
-    "site": "https://reffen-stock.herokuapp.com/"
+    "title": "Words brought by the tide",
+    "image": "screen-words-brought-by-the-tide.png",
+    "description": "Quotes by famous people delivered in a beautiful way",
+    "techs": "React, Redux, Styled-components, REST api integration, Serverless functions with FaunaDB, framer-motion for animations, SVG .",
+    "source": "https://github.com/marcodca/words-brought-by-the-tide.git",
+    "site": "http://words-brought-by-the-tide.herokuapp.com/"
   },
   {
     "title": "Christiania Rules",
