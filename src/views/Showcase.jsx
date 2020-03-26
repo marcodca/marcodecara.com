@@ -51,7 +51,7 @@ const Showcase = ({ children, offset }) => {
         offset={offset}
         factor={1.6}
         css={`
-          ${media.md`clip-path: none; height: 1500px !important; clip-path: polygon(0 2%, 100% 4%, 100% 99%, 0 100%)`}
+          ${media.md`clip-path: none; height: 1500px !important; clip-path: polygon(0 2%, 100% 4%, 100% 99%, 0 100%);`}
         `}
       >
         <ProjectSelector

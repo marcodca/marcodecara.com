@@ -56,7 +56,9 @@ const Index = () => (
     <Layout />
     <Parallax
       pages={6.6}
-      css={`${media.sm`height: 120% !important;`}`}
+      css={`
+        ${media.md`height: 120% !important; width: calc(100% + 16px) !important; right: -16px; overflow-x: visible !important;`}
+      `}
     >
       <Hero offset={0}>
         <ScaleUp delay={100}>
@@ -122,11 +124,7 @@ const Index = () => (
           ${media.sm`margin-top: 20%;`}
         `}
       >
-        <Inner
-          css={`
-          
-          `}
-        >
+        <Inner css={``}>
           <Title
             css={`
               ${tw`text-black`}
