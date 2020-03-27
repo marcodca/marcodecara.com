@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
-import { colors } from '../../tailwind'
-import background from '../images/background.svg'
+import { createGlobalStyle } from "styled-components";
+import { colors } from "../../tailwind";
+import background from "../images/background.svg";
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   /* background by SVGBackgrounds.com */
   ::selection {
       background-color: ${colors.black};
-      color: ${colors['grey-light']};
+      color: ${colors["grey-light"]};
     }
 
   html, body {
@@ -30,10 +30,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  body {
+    font-family: questrial;
+  }
   a {
-    color: ${colors['orange-light']};
+    color: ${colors["orange-light"]};
     text-decoration: none;
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

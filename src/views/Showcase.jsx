@@ -16,8 +16,6 @@ import { UpDown, UpDownWide } from "../styles/animations";
 import { colors } from "../../tailwind";
 import { media } from "../styles/utils";
 
-//TO DO: The ProjectCard components behaves funny on small screens and the media queries mess up the animations,  so it would be nice two have two of them, and only render one according to the screen size (yeah DOM, sorry about that)
-
 const Showcase = ({ children, offset }) => {
   //The projects data, coming from the projects.json file, in src/data.
   const data = useStaticQuery(graphql`
@@ -34,9 +32,20 @@ const Showcase = ({ children, offset }) => {
           }
         }
       }
+      allExtraProjectsJson {
+        edges {
+          node {
+            title
+            description
+            source
+            site
+          }
+        }
+      }
     }
   `);
 
+  const { allProjectsJson, allExtraProjectsJson } = data;
   //An state for keeping track of the selected card, we use the name of the image as a reference, for reasons of ease.
   const [selectedProject, setSelectedProject] = useState(
     "screen-do-it-better.png"
@@ -46,12 +55,12 @@ const Showcase = ({ children, offset }) => {
     <>
       <Divider
         bg={colors["blue-grey"]}
-        clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
+        clipPath="polygon(0 16%, 100% 4%, 100% 88%, 0 94%)"
         speed={0.2}
         offset={offset}
         factor={1.6}
         css={`
-          ${media.md`clip-path: none; height: 1500px !important; clip-path: polygon(0 2%, 100% 4%, 100% 99%, 0 100%);`}
+          ${media.md`clip-path: none; height: 1600px !important; clip-path: polygon(0 1%, 100% 2%, 100% 99%, 0 100%);`}
         `}
       >
         <ProjectSelector
@@ -59,7 +68,7 @@ const Showcase = ({ children, offset }) => {
           setSelectedProject={setSelectedProject}
         />
         <ProjectsContainer>
-          {data.allProjectsJson.edges.map((project, i) => (
+          {allProjectsJson.edges.map((project, i) => (
             <ProjectCard
               projectData={project.node}
               key={i}
@@ -67,7 +76,25 @@ const Showcase = ({ children, offset }) => {
             />
           ))}
         </ProjectsContainer>
-
+        <ExtraProjects>
+          <h4>And more...</h4>
+          <ul>
+            {allExtraProjectsJson.edges.map((project, i) => {
+              const { title, description, site, source } = project.node;
+              return (
+                <li key={i}>
+                  <span>
+                    <a href={site}>{title}: </a>
+                    {description}.{" "}
+                    <span>
+                      <a href={source}>Source</a>
+                    </span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </ExtraProjects>
         <ResponsiveBlob
           size={7}
           left="75%"
@@ -138,9 +165,31 @@ const Showcase = ({ children, offset }) => {
 const ProjectsContainer = styled.div`
   width: 60%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 8%;
   position: relative;
   ${media.md`width: 98%; margin-top: 9em;`}
+`;
+
+const ExtraProjects = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 25%;
+  font-size: 1.25em;
+  color: #fff;
+  > h3 {
+    font-family: trocchi;
+  }
+  > ul {
+    font-family: questrial;
+    list-style: none;
+    > li {
+      margin-bottom: 0.5em;
+      > span > span {
+        font-size: 0.8em;
+      }
+    }
+  }
+  ${media.md`width: 98%; margin-top: 0; font-size: 1em`}
 `;
 
 export default Showcase;

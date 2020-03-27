@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Reffen Stock",
+    "description": "A full-stack web app for keeping track of missing products in an inventory. Fully responsive and with PWA functionality",
+    "site": "https://reffen-stock.herokuapp.com",
+    "source": "https://github.com/marcodca/reffen-stock"
+  },
+  {
+    "title": "Life is a gamble",
+    "description": "An animated emoji slot machine (in 300 lines of code!)",
+    "site": "https://g69k6.codesandbox.io/",
+    "source": "https://codesandbox.io/s/agitated-architecture-g69k6"
+  }
+]

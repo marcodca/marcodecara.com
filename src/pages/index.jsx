@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
 import tw from "tailwind.macro";
-import Avatar from "../components/Avatar";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { ScaleUp } from "../styles/animations";
 import { media } from "../styles/utils";
@@ -22,7 +21,7 @@ import Contact from "../views/Contact";
 import Footer from "../views/Footer";
 
 //Assets
-// import avatar from "../images/avatar.png";
+import Avatar from "../components/Avatar";
 
 const BigTitleName = styled.span`
   font-size: 115%;
@@ -86,17 +85,12 @@ const Index = () => (
           <a href="https://redux.js.org/"> Redux</a>,{" "}
           <a href="https://www.styled-components.com/"> styled-components</a>{" "}
           and <a href="https://graphql.org/"> GraphQL</a>, among others.
-          {/* like <a href="https://reactjs.org/"> React</a>,{" "}
-          <a href="https://www.gatsbyjs.org/"> GatsbyJs</a>,{" "}
-          <a href="https://www.styled-components.com/"> styled-components</a>{" "}
-          and <a href="https://graphql.org/"> GraphQL</a>, among others. */}
         </SkillsIntro>
       </Skills>
       <Me offset={3}>
         <Title>Me</Title>
         <MeHero>
           <Avatar />
-          {/* <Avatar src={avatar} alt="Marco de Cara's photo" /> */}
           <MeText>
             I'm a Barcelona based full-stack(ish) web developer, with a bent for
             front-end and design. Former{" "}
@@ -110,7 +104,7 @@ const Index = () => (
         <Title
           css={`
             ${media.md`
-              transform: translateY(-4.3em);
+              transform: translateY(-6em);
               width: 66%;
             `}
           `}
@@ -124,7 +118,11 @@ const Index = () => (
           ${media.sm`margin-top: 20%;`}
         `}
       >
-        <Inner css={``}>
+        <Inner
+          css={`
+            ${media.sm`margin-top: 20%;`}
+          `}
+        >
           <Title
             css={`
               ${tw`text-black`}
