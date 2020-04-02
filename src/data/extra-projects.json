@@ -10,5 +10,11 @@
     "description": "An animated emoji slot machine (in 300 lines of code!)",
     "site": "https://g69k6.codesandbox.io/",
     "source": "https://codesandbox.io/s/agitated-architecture-g69k6"
+  },
+  {
+    "title": "Chupaunhuevo.me",
+    "description": "A platform to keep record of stuff you don't care about (Spanish)",
+    "site": "https://www.chupaunhuevo.me/",
+    "source": "https://github.com/marcodca/chupaunhuevo.me"
   }
 ]

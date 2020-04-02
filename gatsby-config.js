@@ -65,6 +65,7 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-sitemap`,
     /* Must be placed at the end */
     "gatsby-plugin-offline",
     "gatsby-plugin-netlify"

@@ -32,4 +32,4 @@ gatsby develop
 ## Acknowledgments
 
 This project is intended to work as my personal portfolio. It's build on top of React and GatbsyJs. Styling is done with tailwind and Styled-components. Animations with react-spring. It also has built it PWA functionality. 
-Because I was going after a more visually impressive application, performance is far from being the ideal. I am still working on the responsive display on small screens, since it's quite sloppy at the time. 
+Because I was going after a more visually impressive application, performance is far from being the ideal.
