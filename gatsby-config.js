@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "marcodecara.com",
+    siteUrl: "https://www.marcodecara.com/"
   },
   plugins: [
     "gatsby-plugin-styled-components",
