@@ -60,3 +60,7 @@ public/
 bundle-stats.json
 
 tailwind.custom.css
+
+#.DC
+
+.DS_Store
