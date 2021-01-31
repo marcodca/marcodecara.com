@@ -1,5 +1,4 @@
-import * as React from "react"
-import GlobalStyle from "../styles/GlobalStyle";
+import * as React from "react";
 import { useGesture } from "react-use-gesture";
 import { useProxy } from "valtio";
 import { state } from "../store";
@@ -15,45 +14,54 @@ const IndexPage = () => {
   const snapshot = useProxy(state);
   const isFirstView = snapshot.currentView === 0;
 
-  const getGestureHandle = (treshold) => {
+  const getGestureHandle = (threshold) => {
     return ({ movement: [, y] }) => {
       const next =
-        y > treshold ? 1 : y < treshold * -1 ? 0 : snapshot.currentView;
+        y > threshold ? 1 : y < threshold * -1 ? 0 : snapshot.currentView;
       if (next !== snapshot.currentView) state.currentView = next;
     };
   };
 
   const bind = useGesture({
     onDrag: getGestureHandle(250),
-    onWheel: getGestureHandle(400)
+    onWheel: getGestureHandle(400),
   });
 
-  return (
-  <>
-    <GlobalStyle />
-    <main className="App" {...bind()}>
-    <Title />
-      <Scene />
-      <ScrollButton
-        isFirstView={isFirstView}
-        onClick={() => {
-          state.currentView = isFirstView ? 1 : 0;
-        }}
-      >
-        <span />
-        Scroll
-      </ScrollButton>
-      <Footer />
-      <Loader
-        barStyles={{ transform: "scaleY(2)", backgroundColor: "var(--red)" }}
-        innerStyles={{
-          transform: "skew(-17deg)"
-        }}
-      />
-    </main>
-  </>
-  )
+  const [status, setStatus] = React.useState("no")
+
+const handleRequest = () => {
+  setStatus('yes')
+  DeviceMotionEvent.requestPermission()
 }
+
+  return (
+    <>
+      <main {...bind()}>
+        <Title />
+        <Scene />
+        
+        <ScrollButton
+          isFirstView={isFirstView}
+          onClick={handleRequest}
+          // onClick={() => {
+          //   state.currentView = isFirstView ? 1 : 0;
+          // }}
+        >
+          <span />
+          <h1>Device: {status.toString()}</h1>
+          Scroll
+        </ScrollButton>
+        <Footer />
+        <Loader
+          barStyles={{ transform: "scaleY(2)", backgroundColor: "var(--red)" }}
+          innerStyles={{
+            transform: "skew(-17deg)",
+          }}
+        />
+      </main>
+    </>
+  );
+};
 
 const ScrollButton = styled.button`
   appearance: none;
@@ -86,4 +94,4 @@ const ScrollButton = styled.button`
   }
 `;
 
-export default IndexPage
+export default IndexPage;

@@ -3,18 +3,27 @@ import { fonts, colors, breakpoints } from "./theme";
 
 export default createGlobalStyle`
 
+@font-face {
+  font-family: "Chau Philomene One";
+  src: url("/fonts/ChauPhilomeneOne.ttf");
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode.ttf");
+}
+
 :root{
-  --font-primary: ${fonts.primary};
-  --font-secondary: ${fonts.secondary};
+  --font-primary: ${fonts.primary}, Impact, Charcoal, sans-serif;
+  --font-secondary: ${fonts.secondary}, "Courier New", Courier, monospace;
   --red: ${colors.red};
   --orange: ${colors.orange};
   --light-grey: ${colors.lightGrey};
   --dark-grey: ${colors.darkGrey};
   --white: ${colors.white};
   --black: ${colors.black};
-  --breakpint-sm: ${breakpoints.sm};
-  --breakpint-md: ${breakpoints.md};
-  --breakpint-lg: ${breakpoints.lg};
+  --breakpoint-sm: ${breakpoints.sm};
+  --breakpoint-md: ${breakpoints.md};
+  --breakpoint-lg: ${breakpoints.lg};
 }
 *,
 *:before,
@@ -30,10 +39,13 @@ body {
 }
 
 body,
-#root,
-.App {
+#root {
   margin: 0;
   padding: 0;
+}
+
+main {
+  height: 100vh;
 }
 
 a, a:visited {

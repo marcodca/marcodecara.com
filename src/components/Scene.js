@@ -2,14 +2,16 @@ import React, { useState, useRef, Suspense, useEffect } from "react";
 import * as THREE from "three";
 import { a, useSpring, config } from "react-spring/three";
 import styled from "styled-components";
-import { useTexture } from "@react-three/drei";
-import { Canvas } from "react-three-fiber";
+import { useTexture, DeviceOrientationControls } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "react-three-fiber";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { useProxy } from "valtio";
 import { state } from "../store";
 import Laptop from "./Laptop";
 import { colors } from "../styles/theme";
 import logo from "../images/logo.png";
+
+import About from "./About";
 
 const BgCircle = () => {
   const ref = useRef();
@@ -36,18 +38,66 @@ const BgCircle = () => {
   );
 };
 
-const Scene3D = () => {
-  const snapshot = useProxy(state);
-  const isFirstView = snapshot.currentView === 0;
+const Box = () => {
+  const deviceOrientationRef = useRef();
+
+  useFrame(() => {
+    if (deviceOrientationRef.current.object.rotation.x < -0.4) {
+      deviceOrientationRef.current.object.rotation.x = -0.4;
+    }
+    if (deviceOrientationRef.current.object.rotation.x > 0.4) {
+      deviceOrientationRef.current.object.rotation.x = 0.4;
+    }
+    if (deviceOrientationRef.current.object.rotation.y < -0.4) {
+      deviceOrientationRef.current.object.rotation.y = -0.4;
+    }
+    if (deviceOrientationRef.current.object.rotation.y > 0.4) {
+      deviceOrientationRef.current.object.rotation.y = 0.4;
+    }
+    // if (deviceOrientationRef.current.object.rotation.y < -1.5) {
+    //   deviceOrientationRef.current.object.rotation.y = -1.5;
+    // }
+
+    if (Math.random() > 0.8) {
+      console.log(deviceOrientationRef.current.object.rotation.z);
+    }
+  });
+
+  return (
+    <>
+      <DeviceOrientationControls
+        ref={deviceOrientationRef}
+        // alphaOffset={0.01}
+        // screenOrientation={-90}
+      />
+      <mesh position={[0, 0, 3]}>
+        <boxBufferGeometry args={[2, 2, 2]} />
+        <meshBasicMaterial color="yellow" />
+      </mesh>
+    </>
+  );
+};
+
+const Scene = () => {
+  const { currentView, isMobile } = useProxy(state);
+  const isFirstView = currentView === 0;
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    state.isMobile = isMobile;
+    setIsReady(true);
+  }, []);
+
   const canvasProps = {
     style: {
       position: "fixed",
-      background: "radial-gradient(circle, var(--orange) 40%, var(--red) 100%)"
+      background: "radial-gradient(circle, var(--orange) 40%, var(--red) 100%)",
     },
     camera: {
-      position: [0, 0, 5]
+      position: [0, 0, 5],
     },
-    shadowMap: true
+    shadowMap: true,
   };
 
   const { rotationY, scale, rotationX } = useSpring({
@@ -55,11 +105,11 @@ const Scene3D = () => {
       {
         scale: [0.6, 0.6, 0.6],
         rotationY: Math.PI,
-        config: { tension: 400, ...config.gentle }
+        config: { tension: 400, ...config.gentle },
       },
-      { scale: [1, 1, 1], rotationY: 0, rotationX: 0.05 }
+      { scale: [1, 1, 1], rotationY: 0, rotationX: 0.05 },
     ],
-    from: { rotationY: Math.PI, scale: [0.1, 0.1, 0.1] }
+    from: { rotationY: Math.PI, scale: [0.1, 0.1, 0.1] },
   });
 
   const spotLightProps = isFirstView
@@ -67,27 +117,25 @@ const Scene3D = () => {
     : { angle: 0.8, intensity: 1.4, penumbra: 0.2 };
 
   return (
-    <Canvas
-      resize={{ polyfill: ResizeObserver }}
-      {...canvasProps}
-      onPointerMissed={
-        isFirstView
-          ? null
-          : () => {
-              state.currentView = 0;
-            }
-      }
-    >
-      <directionalLight position={[0, 3, 3]} intensity={0.5} />
-      <spotLight castShadow position={[0, -1, 5]} {...spotLightProps} />
-      <a.group rotation-y={rotationY} scale={scale} rotation-x={rotationX}>
-        <Suspense fallback={null}>
-          <BgCircle />
-          <Laptop />
-        </Suspense>
-      </a.group>
-    </Canvas>
+    isReady && (
+      <Canvas
+        resize={{ polyfill: ResizeObserver }}
+        {...canvasProps}
+        onPointerMissed={
+          isFirstView
+            ? null
+            : () => {
+                state.currentView = 0;
+              }
+        }
+      >
+        <directionalLight position={[0, 3, 3]} intensity={0.5} />
+        <spotLight castShadow position={[0, -1, 5]} {...spotLightProps} />
+        <Box />
+        <About />
+      </Canvas>
+    )
   );
 };
 
-export default Scene3D;
+export default Scene;
