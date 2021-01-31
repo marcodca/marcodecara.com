@@ -1,37 +1,48 @@
-# marcodecara.com
-
-A personal web page/portfolio with parallax effects, animations and a ton of blobs.
-
-[Link to the app.](https://www.marcodecara.com/)
-
 <p align="center">
-<img width="460" height="300" src="https://i.ibb.co/NLmg1kB/screen-shot.png">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
 </p>
+<h1 align="center">
+  Gatsby minimal starter
+</h1>
 
-## Getting Started
+## 🚀 Quick start
 
-### NOTE: In order to run this project you are gonna need to have NodeJS and GatsbyJs installed in your computer.
+1.  **Create a Gatsby site.**
 
-1. **Clone this repository**
+    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-```sh
-git clone https://github.com/marcodca/marcodecara.com.git project-name
-```
+    ```shell
+    # create a new Gatsby site using the minimal starter
+    npm init gatsby
+    ```
 
-2. **Installation**
+2.  **Start developing.**
 
-```sh
-cd project-name
-npm install
-```
+    Navigate into your new site’s directory and start it up.
 
-3. **Start developing**
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-```sh
-gatsby develop
-```
+3.  **Open the code and start customizing!**
 
-## Acknowledgments
+    Your site is now running at http://localhost:8000!
 
-This project is intended to work as my personal portfolio. It's build on top of React and GatbsyJs. Styling is done with tailwind and Styled-components. Animations with react-spring. It also has built it PWA functionality. 
-Because I was going after a more visually impressive application, performance is far from being the ideal.
+    Edit `src/pages/index.js` to see your site update in real-time!
+
+4.  **Learn more**
+
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)

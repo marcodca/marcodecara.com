@@ -1,66 +1,28 @@
 {
-  "description": "Marco de Cara's website",
   "name": "marcodecara.com",
-  "version": "3.0.0",
-  "author": "Marco de Cara",
-  "license": "MIT",
-  "dependencies": {
-    "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "^2.17.11",
-    "gatsby-image": "^2.2.31",
-    "gatsby-plugin-google-analytics": "2.0.18",
-    "gatsby-plugin-manifest": "^2.2.27",
-    "gatsby-plugin-netlify": "2.0.14",
-    "gatsby-plugin-offline": "^3.0.19",
-    "gatsby-plugin-react-helmet": "^3.1.14",
-    "gatsby-plugin-sharp": "^2.2.37",
-    "gatsby-plugin-styled-components": "3.0.7",
-    "gatsby-source-filesystem": "^2.1.36",
-    "gatsby-transformer-json": "^2.2.25",
-    "gatsby-transformer-sharp": "^2.3.3",
-    "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-blob": "1.0.1",
-    "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1",
-    "react-responsive-modal": "4.0.1",
-    "react-spring": "8.0.19",
-    "sharp": "^0.23.2",
-    "styled-components": "4.2.0",
-    "tailwind.macro": "0.5.10",
-    "tailwindcss": "0.7.4",
-    "typeface-questrial": "0.0.72",
-    "typeface-trocchi": "0.0.72"
-  },
+  "version": "1.0.0",
+  "private": true,
+  "description": "marcodecara.com",
+  "author": "marcodca",
   "keywords": [
-    "gatsby",
-    "portfolio"
+    "gatsby"
   ],
   "scripts": {
-    "dev": "gatsby develop -o",
     "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build",
-    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
-    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
-    "lint:ci": "yarn lint --format junit -o results/eslint/result.xml"
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.17.0"
-  },
-  "repository": {
-    "url": "https://github.com/marcodca/marcodecara.com",
-    "type": "git"
-  },
-  "bugs": {
-    "url": "https://github.com/marcodca/marcodecara.com/issues"
-  },
-  "homepage": "https://marcodecara.com"
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-react-helmet": "^3.9.0",
+    "gatsby-plugin-sitemap": "^2.11.0",
+    "gatsby-plugin-styled-components": "^3.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.1"
+  }
 }
